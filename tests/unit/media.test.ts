@@ -16,7 +16,13 @@ const videoPaths = (video: MediaVideo) => [video.src, video.poster];
 
 const projectPaths = PROJECTS.flatMap((project) => [
   ...(project.cover ? imagePaths(project.cover) : []),
-  ...project.blocks.flatMap((block) => (block.kind === 'image' ? imagePaths(block.image) : [])),
+  ...project.blocks.flatMap((block) =>
+    block.kind === 'row'
+      ? block.images.flatMap(imagePaths)
+      : block.kind === 'video'
+        ? videoPaths(block.video)
+        : [],
+  ),
 ]);
 
 const superPlayPaths = SUPERPLAY_POSTS.flatMap((tile) =>
@@ -40,9 +46,9 @@ describe('media referenced by the site', () => {
 });
 
 describe('Disney Solitaire previews', () => {
-  it('include the "updated mtx" videos minus the three removed on request', () => {
-    expect(SUPERPLAY_PREVIEWS).toHaveLength(9);
-    const removed = ['preview-03', 'preview-05', 'preview-06'];
+  it('are the 8 chosen In-Game clips (two pages of 4)', () => {
+    expect(SUPERPLAY_PREVIEWS).toHaveLength(8);
+    const removed = ['preview-03', 'preview-05', 'preview-06', 'preview-10'];
     expect(SUPERPLAY_PREVIEWS.filter((v) => removed.some((r) => v.src.includes(r)))).toEqual([]);
   });
 });

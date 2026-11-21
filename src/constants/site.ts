@@ -12,6 +12,7 @@ export interface NavLink {
 export const NAV_LINKS: readonly NavLink[] = [
   { label: 'Disney Solitaire', href: '#superplay' },
   { label: 'Work', href: '#work' },
+  { label: 'Career', href: '#career' },
   { label: 'Contact', href: '#contact' },
 ];
 

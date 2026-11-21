@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 
 import { media } from '@/styles/media';
+import { sectionSpacing } from '@/styles/section';
 
 export const StyledSuperPlay = styled.section`
+  ${sectionSpacing}
   background-color: ${({ theme }) => theme.colors.band};
-  padding-block: ${({ theme }) => theme.space['2xl']};
-
-  ${media.lg} {
-    padding-block: ${({ theme }) => theme.space['3xl']};
-  }
 `;
 
 export const Title = styled.h2`

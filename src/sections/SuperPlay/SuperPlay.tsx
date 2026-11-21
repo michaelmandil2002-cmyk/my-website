@@ -19,12 +19,12 @@ import {
   Subtitle,
   Title,
 } from '@/sections/SuperPlay/SuperPlay.styles';
-import { imageProps } from '@/utils/media';
+import { imageProps, videoPreview } from '@/utils/media';
 
 const INITIAL_POSTS = 12;
 const POST_ALT = 'Disney Solitaire social media post';
 
-/** Disney Solitaire posts and ads made at Super Play. */
+/** Disney Solitaire posts and ads made at Superplay. */
 export function SuperPlay() {
   const [showAll, setShowAll] = useState(false);
   const [zoomed, setZoomed] = useState<LightboxImage | null>(null);
@@ -40,13 +40,21 @@ export function SuperPlay() {
             {posts.map((tile) =>
               tile.kind === 'video' ? (
                 <Tile key={tile.video.src}>
-                  <LazyVideo
-                    src={asset(tile.video.src)}
-                    poster={asset(tile.video.poster)}
-                    width={tile.video.width}
-                    height={tile.video.height}
-                    ambient
-                  />
+                  <TileButton
+                    type="button"
+                    aria-label="Enlarge Disney Solitaire ad video"
+                    onClick={() => {
+                      setZoomed(videoPreview(tile.video, 'Disney Solitaire ad video'));
+                    }}
+                  >
+                    <LazyVideo
+                      src={asset(tile.video.src)}
+                      poster={asset(tile.video.poster)}
+                      width={tile.video.width}
+                      height={tile.video.height}
+                      ambient
+                    />
+                  </TileButton>
                 </Tile>
               ) : (
                 <Tile key={tile.image.src}>
@@ -88,7 +96,7 @@ export function SuperPlay() {
           )}
         </Group>
 
-        <EventGrid title="In-Game" events={SUPERPLAY_PREVIEWS} />
+        <EventGrid title="In-Game" events={SUPERPLAY_PREVIEWS} onOpen={setZoomed} />
       </Container>
 
       <Lightbox

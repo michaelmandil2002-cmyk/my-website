@@ -21,9 +21,11 @@ export const Back = styled.a`
 export const Head = styled.header`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: ${({ theme }) => theme.space.md};
   max-width: ${({ theme }) => theme.layout.readingWidth};
-  margin-block: ${({ theme }) => theme.space.xl} ${({ theme }) => theme.space['2xl']};
+  margin: ${({ theme }) => theme.space.xl} auto ${({ theme }) => theme.space['2xl']};
+  text-align: center;
 
   h1 {
     font-size: ${({ theme }) => theme.fontSizes.section};
@@ -48,12 +50,16 @@ export const Category = styled.span`
 `;
 
 export const Body = styled.div`
+  --block-gap: ${({ theme }) => theme.space.lg};
+
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.space.lg};
+  align-items: center;
+  gap: var(--block-gap);
+  text-align: center;
 
   ${media.md} {
-    gap: ${({ theme }) => theme.space.xl};
+    --block-gap: ${({ theme }) => theme.space.xl};
   }
 
   h2 {
@@ -74,13 +80,11 @@ export const Body = styled.div`
   }
 `;
 
-export const Figure = styled.figure`
-  overflow: hidden;
-`;
-
 export const Next = styled.a`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: ${({ theme }) => theme.space.sm};
   margin-top: ${({ theme }) => theme.space['3xl']};
   padding-top: ${({ theme }) => theme.space.xl};
@@ -117,4 +121,15 @@ export const NotFound = styled.div`
     color: ${({ theme }) => theme.colors.heading};
     font-weight: ${({ theme }) => theme.fontWeights.regular};
   }
+`;
+
+/** A tall screen recording (e.g. the cake kiosk) shown at a moderate size. */
+export const VideoFrame = styled.button`
+  display: block;
+  width: 100%;
+  max-width: 22rem;
+  margin-inline: auto;
+  padding: 0;
+  background: none;
+  border: 0;
 `;

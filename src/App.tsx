@@ -5,7 +5,7 @@ import { MainLayout } from '@/components/layout';
 import { SITE } from '@/constants/site';
 import { useHashRoute } from '@/hooks/useHashRoute';
 import { ProjectPage } from '@/pages/ProjectPage/ProjectPage';
-import { Contact, Hero, SuperPlay, Work } from '@/sections';
+import { Career, Contact, Hero, SuperPlay, Work } from '@/sections';
 import { GlobalStyle } from '@/styles/GlobalStyle';
 import { theme } from '@/styles/theme';
 
@@ -34,6 +34,7 @@ export function App() {
             <Hero />
             <SuperPlay />
             <Work />
+            <Career />
             <Contact />
           </>
         )}

@@ -7,6 +7,9 @@ export interface LightboxImage {
   readonly alt: string;
   readonly width: number;
   readonly height: number;
+  /** Show a video instead of an image (plays muted on loop, with controls). */
+  readonly kind?: 'image' | 'video';
+  readonly poster?: string;
 }
 
 interface LightboxProps {
@@ -14,7 +17,7 @@ interface LightboxProps {
   readonly onClose: () => void;
 }
 
-/** Full-screen image viewer on the native <dialog>: Escape, focus trap and backdrop come built in. */
+/** Full-screen image or video viewer on the native <dialog>: Escape, focus trap and backdrop come built in. */
 export function Lightbox({ image, onClose }: LightboxProps) {
   const ref = useRef<HTMLDialogElement>(null);
 
@@ -32,14 +35,33 @@ export function Lightbox({ image, onClose }: LightboxProps) {
 
   return (
     <Dialog ref={ref} aria-label={image?.alt} onClose={onClose} onClick={onBackdropClick}>
-      <Close type="button" aria-label="Close image" onClick={onClose}>
+      <Close type="button" aria-label="Close preview" onClick={onClose}>
         <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
           <path d="M4 4l12 12M16 4L4 16" stroke="currentColor" strokeWidth="2" />
         </svg>
       </Close>
       {image && (
         <Figure onClick={onBackdropClick}>
-          <img src={image.src} alt={image.alt} width={image.width} height={image.height} />
+          {image.kind === 'video' ? (
+            <video
+              ref={(video) => {
+                // Muted so it can start on its own (sound can be turned on with the controls).
+                if (video) video.muted = true;
+              }}
+              src={image.src}
+              poster={image.poster}
+              width={image.width}
+              height={image.height}
+              aria-label={image.alt}
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+            />
+          ) : (
+            <img src={image.src} alt={image.alt} width={image.width} height={image.height} />
+          )}
         </Figure>
       )}
     </Dialog>

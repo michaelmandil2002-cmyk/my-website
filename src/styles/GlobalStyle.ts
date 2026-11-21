@@ -1,17 +1,18 @@
 import { createGlobalStyle } from 'styled-components';
 
-/** A black dot with a thin white ring (so it stays visible on black areas and videos). */
-const circleCursor = (size: number) => {
-  const r = size / 2;
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${String(size)}' height='${String(size)}'><circle cx='${String(r)}' cy='${String(r)}' r='${String(r - 1)}' fill='#111111' stroke='#ffffff' stroke-width='1.5'/></svg>`;
+/** The site cursor: a plain black dot, the same everywhere. */
+const CURSOR_SIZE = 22;
+const circleCursor = () => {
+  const r = CURSOR_SIZE / 2;
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${String(CURSOR_SIZE)}' height='${String(CURSOR_SIZE)}'><circle cx='${String(r)}' cy='${String(r)}' r='${String(r)}' fill='#111111'/></svg>`;
   return `url("data:image/svg+xml,${encodeURIComponent(svg)}") ${String(r)} ${String(r)}`;
 };
 
 export const GlobalStyle = createGlobalStyle`
-  /* Mouse users get a black circle cursor; it grows over anything clickable. */
+  /* Mouse users get one black dot cursor everywhere, including over links and buttons. */
   @media (hover: hover) and (pointer: fine) {
     html {
-      cursor: ${circleCursor(16)}, auto;
+      cursor: ${circleCursor()}, auto;
     }
 
     a,
@@ -20,7 +21,7 @@ export const GlobalStyle = createGlobalStyle`
     label,
     select,
     summary {
-      cursor: ${circleCursor(28)}, pointer !important;
+      cursor: ${circleCursor()}, pointer !important;
     }
   }
 

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { CatDrawing } from '@/sections/Hero/CatDrawing/CatDrawing';
 import { media } from '@/styles/media';
 
 /** Fills the first screen (below the header), so the next section starts only after scrolling. */
@@ -35,7 +36,7 @@ export const Text = styled.div`
   min-width: 0;
 `;
 
-export const Art = styled.img`
+export const Art = styled(CatDrawing)`
   order: -1;
   justify-self: center;
   width: 100%;

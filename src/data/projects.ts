@@ -9,186 +9,177 @@ export const PROJECTS: readonly Project[] = [
     summary: '',
     blocks: [
       {
-        kind: 'image',
-        image: {
-          src: 'work/tattoo-artist/01.jpg',
-          width: 1600,
-          height: 1600,
-          small: {
-            src: 'work/tattoo-artist/01-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/tattoo-artist/01.jpg',
+            width: 1600,
+            height: 1600,
+            small: {
+              src: 'work/tattoo-artist/01-800.jpg',
+              width: 800,
+            },
           },
-        },
+          {
+            src: 'work/tattoo-artist/02.jpg',
+            width: 1600,
+            height: 1600,
+            small: {
+              src: 'work/tattoo-artist/02-800.jpg',
+              width: 800,
+            },
+          },
+          {
+            src: 'work/tattoo-artist/03.jpg',
+            width: 1600,
+            height: 1600,
+            small: {
+              src: 'work/tattoo-artist/03-800.jpg',
+              width: 800,
+            },
+          },
+        ],
+        widths: [33, 33, 33],
+        wide: true,
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/tattoo-artist/02.jpg',
-          width: 1600,
-          height: 1600,
-          small: {
-            src: 'work/tattoo-artist/02-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/tattoo-artist/04.jpg',
+            width: 1600,
+            height: 1600,
+            small: {
+              src: 'work/tattoo-artist/04-800.jpg',
+              width: 800,
+            },
           },
-        },
+          {
+            src: 'work/tattoo-artist/05.jpg',
+            width: 1600,
+            height: 1600,
+            small: {
+              src: 'work/tattoo-artist/05-800.jpg',
+              width: 800,
+            },
+          },
+          {
+            src: 'work/tattoo-artist/06.jpg',
+            width: 1600,
+            height: 1600,
+            small: {
+              src: 'work/tattoo-artist/06-800.jpg',
+              width: 800,
+            },
+          },
+        ],
+        widths: [33, 33, 33],
+        wide: true,
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/tattoo-artist/03.jpg',
-          width: 1600,
-          height: 1600,
-          small: {
-            src: 'work/tattoo-artist/03-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/tattoo-artist/07.jpg',
+            width: 1600,
+            height: 1600,
+            small: {
+              src: 'work/tattoo-artist/07-800.jpg',
+              width: 800,
+            },
           },
-        },
+          {
+            src: 'work/tattoo-artist/08.jpg',
+            width: 1600,
+            height: 1600,
+            small: {
+              src: 'work/tattoo-artist/08-800.jpg',
+              width: 800,
+            },
+          },
+          {
+            src: 'work/tattoo-artist/09.jpg',
+            width: 1600,
+            height: 1600,
+            small: {
+              src: 'work/tattoo-artist/09-800.jpg',
+              width: 800,
+            },
+          },
+        ],
+        widths: [33, 33, 33],
+        wide: true,
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/tattoo-artist/04.jpg',
-          width: 1600,
-          height: 1600,
-          small: {
-            src: 'work/tattoo-artist/04-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/tattoo-artist/10.jpg',
+            width: 1600,
+            height: 1600,
+            small: {
+              src: 'work/tattoo-artist/10-800.jpg',
+              width: 800,
+            },
           },
-        },
+          {
+            src: 'work/tattoo-artist/11.jpg',
+            width: 1600,
+            height: 1600,
+            small: {
+              src: 'work/tattoo-artist/11-800.jpg',
+              width: 800,
+            },
+          },
+          {
+            src: 'work/tattoo-artist/12.jpg',
+            width: 1485,
+            height: 1485,
+            small: {
+              src: 'work/tattoo-artist/12-800.jpg',
+              width: 800,
+            },
+          },
+        ],
+        widths: [33, 33, 33],
+        wide: true,
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/tattoo-artist/05.jpg',
-          width: 1600,
-          height: 1600,
-          small: {
-            src: 'work/tattoo-artist/05-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/tattoo-artist/13.jpg',
+            width: 1600,
+            height: 1600,
+            small: {
+              src: 'work/tattoo-artist/13-800.jpg',
+              width: 800,
+            },
           },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/tattoo-artist/06.jpg',
-          width: 1600,
-          height: 1600,
-          small: {
-            src: 'work/tattoo-artist/06-800.jpg',
-            width: 800,
+          {
+            src: 'work/tattoo-artist/14.jpg',
+            width: 1600,
+            height: 1600,
+            small: {
+              src: 'work/tattoo-artist/14-800.jpg',
+              width: 800,
+            },
           },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/tattoo-artist/07.jpg',
-          width: 1600,
-          height: 1600,
-          small: {
-            src: 'work/tattoo-artist/07-800.jpg',
-            width: 800,
+          {
+            src: 'work/tattoo-artist/15.jpg',
+            width: 1600,
+            height: 1600,
+            small: {
+              src: 'work/tattoo-artist/15-800.jpg',
+              width: 800,
+            },
           },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/tattoo-artist/08.jpg',
-          width: 1600,
-          height: 1600,
-          small: {
-            src: 'work/tattoo-artist/08-800.jpg',
-            width: 800,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/tattoo-artist/09.jpg',
-          width: 1600,
-          height: 1600,
-          small: {
-            src: 'work/tattoo-artist/09-800.jpg',
-            width: 800,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/tattoo-artist/10.jpg',
-          width: 1600,
-          height: 1600,
-          small: {
-            src: 'work/tattoo-artist/10-800.jpg',
-            width: 800,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/tattoo-artist/11.jpg',
-          width: 1600,
-          height: 1600,
-          small: {
-            src: 'work/tattoo-artist/11-800.jpg',
-            width: 800,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/tattoo-artist/12.jpg',
-          width: 1485,
-          height: 1485,
-          small: {
-            src: 'work/tattoo-artist/12-800.jpg',
-            width: 800,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/tattoo-artist/13.jpg',
-          width: 1600,
-          height: 1600,
-          small: {
-            src: 'work/tattoo-artist/13-800.jpg',
-            width: 800,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/tattoo-artist/14.jpg',
-          width: 1600,
-          height: 1600,
-          small: {
-            src: 'work/tattoo-artist/14-800.jpg',
-            width: 800,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/tattoo-artist/15.jpg',
-          width: 1600,
-          height: 1600,
-          small: {
-            src: 'work/tattoo-artist/15-800.jpg',
-            width: 800,
-          },
-        },
+        ],
+        widths: [33, 33, 33],
+        wide: true,
       },
     ],
+    blurb: 'I love putting art on people: my tattoo designs',
     cover: {
       src: 'work/tattoo-artist/thumb.jpg',
       width: 1200,
@@ -206,12 +197,15 @@ export const PROJECTS: readonly Project[] = [
     summary: 'UX / UI App Design & Development',
     blocks: [
       {
-        kind: 'image',
-        image: {
-          src: 'work/facewoof/01.gif',
-          width: 1920,
-          height: 1080,
-        },
+        kind: 'row',
+        images: [
+          {
+            src: 'work/facewoof/01.gif',
+            width: 1920,
+            height: 1080,
+          },
+        ],
+        widths: [64],
       },
       {
         kind: 'heading',
@@ -238,12 +232,15 @@ export const PROJECTS: readonly Project[] = [
         text: 'Wireframes',
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/facewoof/02.gif',
-          width: 1920,
-          height: 1080,
-        },
+        kind: 'row',
+        images: [
+          {
+            src: 'work/facewoof/02.gif',
+            width: 1920,
+            height: 1080,
+          },
+        ],
+        widths: [69],
       },
       {
         kind: 'heading',
@@ -266,12 +263,15 @@ export const PROJECTS: readonly Project[] = [
         text: 'Final Design',
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/facewoof/03.gif',
-          width: 1920,
-          height: 1080,
-        },
+        kind: 'row',
+        images: [
+          {
+            src: 'work/facewoof/03.gif',
+            width: 1920,
+            height: 1080,
+          },
+        ],
+        widths: [100],
       },
     ],
     blurb: 'App design for a social network where dogs find their playmates',
@@ -316,28 +316,28 @@ export const PROJECTS: readonly Project[] = [
         text: 'I sent a survey to 20 students. After conducting the market research, I arrived at findings that helped me understand who my audience is.',
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/smartfit/01.jpg',
-          width: 1359,
-          height: 779,
-          small: {
-            src: 'work/smartfit/01-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/smartfit/01.jpg',
+            width: 1359,
+            height: 779,
+            small: {
+              src: 'work/smartfit/01-800.jpg',
+              width: 800,
+            },
           },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/smartfit/02.jpg',
-          width: 1359,
-          height: 752,
-          small: {
-            src: 'work/smartfit/02-800.jpg',
-            width: 800,
+          {
+            src: 'work/smartfit/02.jpg',
+            width: 1359,
+            height: 752,
+            small: {
+              src: 'work/smartfit/02-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [34.5, 35.8],
       },
       {
         kind: 'heading',
@@ -384,16 +384,19 @@ export const PROJECTS: readonly Project[] = [
         text: 'Based on these findings, I have constructed four personas: Amit, Guy, Noam and Or.',
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/smartfit/03.jpg',
-          width: 1600,
-          height: 900,
-          small: {
-            src: 'work/smartfit/03-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/smartfit/03.jpg',
+            width: 1600,
+            height: 900,
+            small: {
+              src: 'work/smartfit/03-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [71],
       },
       {
         kind: 'heading',
@@ -408,12 +411,15 @@ export const PROJECTS: readonly Project[] = [
         text: 'Wireframes Before And After',
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/smartfit/04.gif',
-          width: 1920,
-          height: 1080,
-        },
+        kind: 'row',
+        images: [
+          {
+            src: 'work/smartfit/04.gif',
+            width: 1920,
+            height: 1080,
+          },
+        ],
+        widths: [86],
       },
     ],
     blurb: 'UX research for an app that fits meals and exercise into study schedules',
@@ -439,76 +445,76 @@ export const PROJECTS: readonly Project[] = [
         text: 'The original art piece: "Complexity Of Being"',
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/baby-chick/01.jpg',
-          width: 1082,
-          height: 1600,
-          small: {
-            src: 'work/baby-chick/01-800.jpg',
-            width: 541,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/baby-chick/01.jpg',
+            width: 1082,
+            height: 1600,
+            small: {
+              src: 'work/baby-chick/01-800.jpg',
+              width: 541,
+            },
           },
-        },
+        ],
+        widths: [50],
       },
       {
         kind: 'heading',
         text: 'My own version',
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/baby-chick/02.jpg',
-          width: 1111,
-          height: 1600,
-          small: {
-            src: 'work/baby-chick/02-800.jpg',
-            width: 555,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/baby-chick/02.jpg',
+            width: 1111,
+            height: 1600,
+            small: {
+              src: 'work/baby-chick/02-800.jpg',
+              width: 555,
+            },
           },
-        },
+          {
+            src: 'work/baby-chick/03.jpg',
+            width: 1125,
+            height: 1600,
+            small: {
+              src: 'work/baby-chick/03-800.jpg',
+              width: 562,
+            },
+          },
+        ],
+        widths: [49.7, 49.7],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/baby-chick/03.jpg',
-          width: 1125,
-          height: 1600,
-          small: {
-            src: 'work/baby-chick/03-800.jpg',
-            width: 562,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/baby-chick/04.jpg',
+            width: 1200,
+            height: 1082,
+            small: {
+              src: 'work/baby-chick/04-800.jpg',
+              width: 800,
+            },
           },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/baby-chick/04.jpg',
-          width: 1200,
-          height: 1082,
-          small: {
-            src: 'work/baby-chick/04-800.jpg',
+          {
+            src: 'work/baby-chick/05.jpg',
+            width: 1200,
+            height: 1123,
+            small: {
+              src: 'work/baby-chick/05-800.jpg',
+              width: 800,
+            },
+          },
+          {
+            src: 'work/baby-chick/06.jpg',
             width: 800,
+            height: 800,
           },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/baby-chick/05.jpg',
-          width: 1200,
-          height: 1123,
-          small: {
-            src: 'work/baby-chick/05-800.jpg',
-            width: 800,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/baby-chick/06.jpg',
-          width: 800,
-          height: 800,
-        },
+        ],
+        widths: [34.4, 33.2, 31],
       },
     ],
     blurb: "My own take on Tank's painting “Complexity of Being”",
@@ -534,128 +540,134 @@ export const PROJECTS: readonly Project[] = [
         text: 'How it started',
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/sorry-nut-sorry/01.jpg',
-          width: 1042,
-          height: 1408,
-          small: {
-            src: 'work/sorry-nut-sorry/01-800.jpg',
-            width: 592,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/sorry-nut-sorry/01.jpg',
+            width: 1042,
+            height: 1408,
+            small: {
+              src: 'work/sorry-nut-sorry/01-800.jpg',
+              width: 592,
+            },
           },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/sorry-nut-sorry/02.jpg',
-          width: 650,
-          height: 1600,
-          small: {
-            src: 'work/sorry-nut-sorry/02-800.jpg',
-            width: 325,
+          {
+            src: 'work/sorry-nut-sorry/02.jpg',
+            width: 650,
+            height: 1600,
+            small: {
+              src: 'work/sorry-nut-sorry/02-800.jpg',
+              width: 325,
+            },
           },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/sorry-nut-sorry/03.jpg',
-          width: 1600,
-          height: 1131,
-          small: {
-            src: 'work/sorry-nut-sorry/03-800.jpg',
-            width: 800,
+          {
+            src: 'work/sorry-nut-sorry/03.jpg',
+            width: 1600,
+            height: 1131,
+            small: {
+              src: 'work/sorry-nut-sorry/03-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [28.5, 15.7, 54.5],
       },
       {
         kind: 'heading',
         text: 'How it ended',
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/sorry-nut-sorry/04.jpg',
-          width: 1600,
-          height: 1131,
-          small: {
-            src: 'work/sorry-nut-sorry/04-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/sorry-nut-sorry/04.jpg',
+            width: 1600,
+            height: 1131,
+            small: {
+              src: 'work/sorry-nut-sorry/04-800.jpg',
+              width: 800,
+            },
           },
-        },
+          {
+            src: 'work/sorry-nut-sorry/05.jpg',
+            width: 1372,
+            height: 1600,
+            small: {
+              src: 'work/sorry-nut-sorry/05-800.jpg',
+              width: 686,
+            },
+          },
+          {
+            src: 'work/sorry-nut-sorry/06.jpg',
+            width: 1600,
+            height: 1131,
+            small: {
+              src: 'work/sorry-nut-sorry/06-800.jpg',
+              width: 800,
+            },
+          },
+        ],
+        widths: [37.8, 22.9, 37.8],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/sorry-nut-sorry/05.jpg',
-          width: 1372,
-          height: 1600,
-          small: {
-            src: 'work/sorry-nut-sorry/05-800.jpg',
-            width: 686,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/sorry-nut-sorry/07.jpg',
+            width: 1600,
+            height: 1200,
+            small: {
+              src: 'work/sorry-nut-sorry/07-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/sorry-nut-sorry/06.jpg',
-          width: 1600,
-          height: 1131,
-          small: {
-            src: 'work/sorry-nut-sorry/06-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/sorry-nut-sorry/08.jpg',
+            width: 1600,
+            height: 1200,
+            small: {
+              src: 'work/sorry-nut-sorry/08-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/sorry-nut-sorry/07.jpg',
-          width: 1600,
-          height: 1200,
-          small: {
-            src: 'work/sorry-nut-sorry/07-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/sorry-nut-sorry/09.jpg',
+            width: 1600,
+            height: 1200,
+            small: {
+              src: 'work/sorry-nut-sorry/09-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/sorry-nut-sorry/08.jpg',
-          width: 1600,
-          height: 1200,
-          small: {
-            src: 'work/sorry-nut-sorry/08-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/sorry-nut-sorry/10.jpg',
+            width: 1600,
+            height: 1066,
+            small: {
+              src: 'work/sorry-nut-sorry/10-800.jpg',
+              width: 800,
+            },
           },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/sorry-nut-sorry/09.jpg',
-          width: 1600,
-          height: 1200,
-          small: {
-            src: 'work/sorry-nut-sorry/09-800.jpg',
-            width: 800,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/sorry-nut-sorry/10.jpg',
-          width: 1600,
-          height: 1066,
-          small: {
-            src: 'work/sorry-nut-sorry/10-800.jpg',
-            width: 800,
-          },
-        },
+        ],
+        widths: [100],
       },
     ],
     blurb: 'A snack brand born from a meerkat illustration',
@@ -676,6 +688,15 @@ export const PROJECTS: readonly Project[] = [
     summary:
       'Meet the app that lets you create your dream cake! With a wide and unique range of options, a convenient and delightful ordering interface. We offer pre made cakes as well as build your own cake options.',
     blocks: [
+      {
+        kind: 'video',
+        video: {
+          src: 'work/to-cake-or-not-to-cake/video.mp4',
+          poster: 'work/to-cake-or-not-to-cake/video-poster.jpg',
+          width: 576,
+          height: 1024,
+        },
+      },
       {
         kind: 'heading',
         text: 'Structure Analysis',
@@ -731,64 +752,79 @@ export const PROJECTS: readonly Project[] = [
     summary: '',
     blocks: [
       {
-        kind: 'image',
-        image: {
-          src: 'work/kiwi-swim/01.jpg',
-          width: 1600,
-          height: 1200,
-          small: {
-            src: 'work/kiwi-swim/01-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/kiwi-swim/01.jpg',
+            width: 1600,
+            height: 1200,
+            small: {
+              src: 'work/kiwi-swim/01-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/kiwi-swim/02.jpg',
-          width: 1600,
-          height: 900,
-          small: {
-            src: 'work/kiwi-swim/02-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/kiwi-swim/02.jpg',
+            width: 1600,
+            height: 900,
+            small: {
+              src: 'work/kiwi-swim/02-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/kiwi-swim/03.jpg',
-          width: 1600,
-          height: 900,
-          small: {
-            src: 'work/kiwi-swim/03-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/kiwi-swim/03.jpg',
+            width: 1600,
+            height: 900,
+            small: {
+              src: 'work/kiwi-swim/03-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/kiwi-swim/04.jpg',
-          width: 1600,
-          height: 900,
-          small: {
-            src: 'work/kiwi-swim/04-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/kiwi-swim/04.jpg',
+            width: 1600,
+            height: 900,
+            small: {
+              src: 'work/kiwi-swim/04-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/kiwi-swim/05.jpg',
-          width: 1600,
-          height: 900,
-          small: {
-            src: 'work/kiwi-swim/05-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/kiwi-swim/05.jpg',
+            width: 1600,
+            height: 900,
+            small: {
+              src: 'work/kiwi-swim/05-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
     ],
     blurb: 'Social media posts for a swimwear brand',
@@ -809,76 +845,88 @@ export const PROJECTS: readonly Project[] = [
     summary: '',
     blocks: [
       {
-        kind: 'image',
-        image: {
-          src: 'work/music-festival-rebranding/01.jpg',
-          width: 1600,
-          height: 1066,
-          small: {
-            src: 'work/music-festival-rebranding/01-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/music-festival-rebranding/01.jpg',
+            width: 1600,
+            height: 1066,
+            small: {
+              src: 'work/music-festival-rebranding/01-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/music-festival-rebranding/02.jpg',
-          width: 1600,
-          height: 1067,
-          small: {
-            src: 'work/music-festival-rebranding/02-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/music-festival-rebranding/02.jpg',
+            width: 1600,
+            height: 1067,
+            small: {
+              src: 'work/music-festival-rebranding/02-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/music-festival-rebranding/03.jpg',
-          width: 1600,
-          height: 1066,
-          small: {
-            src: 'work/music-festival-rebranding/03-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/music-festival-rebranding/03.jpg',
+            width: 1600,
+            height: 1066,
+            small: {
+              src: 'work/music-festival-rebranding/03-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/music-festival-rebranding/04.jpg',
-          width: 1131,
-          height: 1600,
-          small: {
-            src: 'work/music-festival-rebranding/04-800.jpg',
-            width: 565,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/music-festival-rebranding/04.jpg',
+            width: 1131,
+            height: 1600,
+            small: {
+              src: 'work/music-festival-rebranding/04-800.jpg',
+              width: 565,
+            },
           },
-        },
+          {
+            src: 'work/music-festival-rebranding/05.jpg',
+            width: 1131,
+            height: 1600,
+            small: {
+              src: 'work/music-festival-rebranding/05-800.jpg',
+              width: 565,
+            },
+          },
+        ],
+        widths: [49.7, 49.7],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/music-festival-rebranding/05.jpg',
-          width: 1131,
-          height: 1600,
-          small: {
-            src: 'work/music-festival-rebranding/05-800.jpg',
-            width: 565,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/music-festival-rebranding/06.jpg',
+            width: 1131,
+            height: 1600,
+            small: {
+              src: 'work/music-festival-rebranding/06-800.jpg',
+              width: 565,
+            },
           },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/music-festival-rebranding/06.jpg',
-          width: 1131,
-          height: 1600,
-          small: {
-            src: 'work/music-festival-rebranding/06-800.jpg',
-            width: 565,
-          },
-        },
+        ],
+        widths: [100],
       },
     ],
     blurb: 'A new visual identity for an existing music festival',
@@ -900,76 +948,82 @@ export const PROJECTS: readonly Project[] = [
       'A music festival that unfortunately doesn\'t exist. I chose "Wonder" as the name for my music festival. I decided to go for a youthful, distinctive, and vibrant branding.',
     blocks: [
       {
-        kind: 'image',
-        image: {
-          src: 'work/wonder-fest/01.jpg',
-          width: 899,
-          height: 1600,
-          small: {
-            src: 'work/wonder-fest/01-800.jpg',
-            width: 449,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/wonder-fest/01.jpg',
+            width: 899,
+            height: 1600,
+            small: {
+              src: 'work/wonder-fest/01-800.jpg',
+              width: 449,
+            },
           },
-        },
+          {
+            src: 'work/wonder-fest/02.jpg',
+            width: 899,
+            height: 1600,
+            small: {
+              src: 'work/wonder-fest/02-800.jpg',
+              width: 449,
+            },
+          },
+        ],
+        widths: [49.7, 49.7],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/wonder-fest/02.jpg',
-          width: 899,
-          height: 1600,
-          small: {
-            src: 'work/wonder-fest/02-800.jpg',
-            width: 449,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/wonder-fest/03.jpg',
+            width: 899,
+            height: 1600,
+            small: {
+              src: 'work/wonder-fest/03-800.jpg',
+              width: 449,
+            },
           },
-        },
+          {
+            src: 'work/wonder-fest/04.jpg',
+            width: 899,
+            height: 1600,
+            small: {
+              src: 'work/wonder-fest/04-800.jpg',
+              width: 449,
+            },
+          },
+        ],
+        widths: [49.7, 49.7],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/wonder-fest/03.jpg',
-          width: 899,
-          height: 1600,
-          small: {
-            src: 'work/wonder-fest/03-800.jpg',
-            width: 449,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/wonder-fest/05.jpg',
+            width: 1600,
+            height: 1200,
+            small: {
+              src: 'work/wonder-fest/05-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/wonder-fest/04.jpg',
-          width: 899,
-          height: 1600,
-          small: {
-            src: 'work/wonder-fest/04-800.jpg',
-            width: 449,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/wonder-fest/06.jpg',
+            width: 1600,
+            height: 1200,
+            small: {
+              src: 'work/wonder-fest/06-800.jpg',
+              width: 800,
+            },
           },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/wonder-fest/05.jpg',
-          width: 1600,
-          height: 1200,
-          small: {
-            src: 'work/wonder-fest/05-800.jpg',
-            width: 800,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/wonder-fest/06.jpg',
-          width: 1600,
-          height: 1200,
-          small: {
-            src: 'work/wonder-fest/06-800.jpg',
-            width: 800,
-          },
-        },
+        ],
+        widths: [100],
       },
     ],
     blurb: 'Youthful, vibrant branding for an imaginary music festival',
@@ -991,88 +1045,109 @@ export const PROJECTS: readonly Project[] = [
       'I chose the best fruit ever, illustrated it, and eventually created a brand based on this chosen fruit. I decided to select the avocado, duh!',
     blocks: [
       {
-        kind: 'image',
-        image: {
-          src: 'work/avocado-brand/01.jpg',
-          width: 1369,
-          height: 1600,
-          small: {
-            src: 'work/avocado-brand/01-800.jpg',
-            width: 684,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/avocado-brand/01.jpg',
+            width: 1369,
+            height: 1600,
+            small: {
+              src: 'work/avocado-brand/01-800.jpg',
+              width: 684,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/avocado-brand/02.jpg',
-          width: 1600,
-          height: 1066,
-          small: {
-            src: 'work/avocado-brand/02-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/avocado-brand/02.jpg',
+            width: 1600,
+            height: 1066,
+            small: {
+              src: 'work/avocado-brand/02-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/avocado-brand/03.jpg',
-          width: 1600,
-          height: 1200,
-          small: {
-            src: 'work/avocado-brand/03-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/avocado-brand/03.jpg',
+            width: 1600,
+            height: 1200,
+            small: {
+              src: 'work/avocado-brand/03-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/avocado-brand/04.jpg',
-          width: 1600,
-          height: 1200,
-          small: {
-            src: 'work/avocado-brand/04-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/avocado-brand/04.jpg',
+            width: 1600,
+            height: 1200,
+            small: {
+              src: 'work/avocado-brand/04-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/avocado-brand/05.jpg',
-          width: 1600,
-          height: 1200,
-          small: {
-            src: 'work/avocado-brand/05-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/avocado-brand/05.jpg',
+            width: 1600,
+            height: 1200,
+            small: {
+              src: 'work/avocado-brand/05-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/avocado-brand/06.jpg',
-          width: 1600,
-          height: 1200,
-          small: {
-            src: 'work/avocado-brand/06-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/avocado-brand/06.jpg',
+            width: 1600,
+            height: 1200,
+            small: {
+              src: 'work/avocado-brand/06-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/avocado-brand/07.jpg',
-          width: 650,
-          height: 1378,
-          small: {
-            src: 'work/avocado-brand/07-800.jpg',
-            width: 377,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/avocado-brand/07.jpg',
+            width: 650,
+            height: 1378,
+            small: {
+              src: 'work/avocado-brand/07-800.jpg',
+              width: 377,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
     ],
     blurb: 'An avocado illustration grown into a full brand and merch',
@@ -1094,76 +1169,94 @@ export const PROJECTS: readonly Project[] = [
       "A chocolate brand I created and designed. Looks better than Dubai chocolate, doesn't it?",
     blocks: [
       {
-        kind: 'image',
-        image: {
-          src: 'work/chocolate-brand/01.jpg',
-          width: 1600,
-          height: 1600,
-          small: {
-            src: 'work/chocolate-brand/01-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/chocolate-brand/01.jpg',
+            width: 1600,
+            height: 1600,
+            small: {
+              src: 'work/chocolate-brand/01-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/chocolate-brand/02.jpg',
-          width: 1600,
-          height: 1600,
-          small: {
-            src: 'work/chocolate-brand/02-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/chocolate-brand/02.jpg',
+            width: 1600,
+            height: 1600,
+            small: {
+              src: 'work/chocolate-brand/02-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/chocolate-brand/03.jpg',
-          width: 1600,
-          height: 1600,
-          small: {
-            src: 'work/chocolate-brand/03-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/chocolate-brand/03.jpg',
+            width: 1600,
+            height: 1600,
+            small: {
+              src: 'work/chocolate-brand/03-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/chocolate-brand/04.jpg',
-          width: 1600,
-          height: 354,
-          small: {
-            src: 'work/chocolate-brand/04-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/chocolate-brand/04.jpg',
+            width: 1600,
+            height: 354,
+            small: {
+              src: 'work/chocolate-brand/04-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/chocolate-brand/05.jpg',
-          width: 1600,
-          height: 354,
-          small: {
-            src: 'work/chocolate-brand/05-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/chocolate-brand/05.jpg',
+            width: 1600,
+            height: 354,
+            small: {
+              src: 'work/chocolate-brand/05-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/chocolate-brand/06.jpg',
-          width: 1600,
-          height: 354,
-          small: {
-            src: 'work/chocolate-brand/06-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/chocolate-brand/06.jpg',
+            width: 1600,
+            height: 354,
+            small: {
+              src: 'work/chocolate-brand/06-800.jpg',
+              width: 800,
+            },
           },
-        },
+        ],
+        widths: [100],
       },
     ],
     blurb: 'Packaging and identity for a chocolate bar brand',
@@ -1184,148 +1277,148 @@ export const PROJECTS: readonly Project[] = [
     summary: '',
     blocks: [
       {
-        kind: 'image',
-        image: {
-          src: 'work/social-media-management/01.jpg',
-          width: 900,
-          height: 1600,
-          small: {
-            src: 'work/social-media-management/01-800.jpg',
-            width: 450,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/social-media-management/01.jpg',
+            width: 900,
+            height: 1600,
+            small: {
+              src: 'work/social-media-management/01-800.jpg',
+              width: 450,
+            },
           },
-        },
+          {
+            src: 'work/social-media-management/02.jpg',
+            width: 900,
+            height: 1600,
+            small: {
+              src: 'work/social-media-management/02-800.jpg',
+              width: 450,
+            },
+          },
+          {
+            src: 'work/social-media-management/03.jpg',
+            width: 900,
+            height: 1600,
+            small: {
+              src: 'work/social-media-management/03-800.jpg',
+              width: 450,
+            },
+          },
+        ],
+        widths: [32.9, 32.9, 32.9],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/social-media-management/02.jpg',
-          width: 900,
-          height: 1600,
-          small: {
-            src: 'work/social-media-management/02-800.jpg',
-            width: 450,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/social-media-management/04.jpg',
+            width: 1080,
+            height: 1080,
+            small: {
+              src: 'work/social-media-management/04-800.jpg',
+              width: 800,
+            },
           },
-        },
+          {
+            src: 'work/social-media-management/05.jpg',
+            width: 1080,
+            height: 1080,
+            small: {
+              src: 'work/social-media-management/05-800.jpg',
+              width: 800,
+            },
+          },
+        ],
+        widths: [49.7, 49.7],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/social-media-management/03.jpg',
-          width: 900,
-          height: 1600,
-          small: {
-            src: 'work/social-media-management/03-800.jpg',
-            width: 450,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/social-media-management/06.jpg',
+            width: 1080,
+            height: 1080,
+            small: {
+              src: 'work/social-media-management/06-800.jpg',
+              width: 800,
+            },
           },
-        },
+          {
+            src: 'work/social-media-management/07.jpg',
+            width: 1080,
+            height: 1080,
+            small: {
+              src: 'work/social-media-management/07-800.jpg',
+              width: 800,
+            },
+          },
+        ],
+        widths: [49.7, 49.7],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/social-media-management/04.jpg',
-          width: 1080,
-          height: 1080,
-          small: {
-            src: 'work/social-media-management/04-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/social-media-management/08.jpg',
+            width: 900,
+            height: 1600,
+            small: {
+              src: 'work/social-media-management/08-800.jpg',
+              width: 450,
+            },
           },
-        },
+          {
+            src: 'work/social-media-management/09.jpg',
+            width: 900,
+            height: 1600,
+            small: {
+              src: 'work/social-media-management/09-800.jpg',
+              width: 450,
+            },
+          },
+        ],
+        widths: [49.7, 49.7],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/social-media-management/05.jpg',
-          width: 1080,
-          height: 1080,
-          small: {
-            src: 'work/social-media-management/05-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/social-media-management/10.jpg',
+            width: 900,
+            height: 1600,
+            small: {
+              src: 'work/social-media-management/10-800.jpg',
+              width: 450,
+            },
           },
-        },
+          {
+            src: 'work/social-media-management/11.jpg',
+            width: 900,
+            height: 1600,
+            small: {
+              src: 'work/social-media-management/11-800.jpg',
+              width: 450,
+            },
+          },
+        ],
+        widths: [49.7, 49.7],
       },
       {
-        kind: 'image',
-        image: {
-          src: 'work/social-media-management/06.jpg',
-          width: 1080,
-          height: 1080,
-          small: {
-            src: 'work/social-media-management/06-800.jpg',
-            width: 800,
+        kind: 'row',
+        images: [
+          {
+            src: 'work/social-media-management/12.jpg',
+            width: 900,
+            height: 1600,
+            small: {
+              src: 'work/social-media-management/12-800.jpg',
+              width: 450,
+            },
           },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/social-media-management/07.jpg',
-          width: 1080,
-          height: 1080,
-          small: {
-            src: 'work/social-media-management/07-800.jpg',
-            width: 800,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/social-media-management/08.jpg',
-          width: 900,
-          height: 1600,
-          small: {
-            src: 'work/social-media-management/08-800.jpg',
-            width: 450,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/social-media-management/09.jpg',
-          width: 900,
-          height: 1600,
-          small: {
-            src: 'work/social-media-management/09-800.jpg',
-            width: 450,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/social-media-management/10.jpg',
-          width: 900,
-          height: 1600,
-          small: {
-            src: 'work/social-media-management/10-800.jpg',
-            width: 450,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/social-media-management/11.jpg',
-          width: 900,
-          height: 1600,
-          small: {
-            src: 'work/social-media-management/11-800.jpg',
-            width: 450,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/social-media-management/12.jpg',
-          width: 900,
-          height: 1600,
-          small: {
-            src: 'work/social-media-management/12-800.jpg',
-            width: 450,
-          },
-        },
+        ],
+        widths: [100],
       },
     ],
     blurb: 'Managing and designing social media content for a client',

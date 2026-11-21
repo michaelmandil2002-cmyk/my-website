@@ -21,8 +21,8 @@ export interface LazyVideoProps {
 /**
  * Loads the video only once it first comes near the viewport, then keeps its source for good
  * (removing and re-adding a source leaves iOS Safari with a dead player). Ambient videos play
- * while on screen and pause off screen; they never autoplay for reduced-motion users, and if
- * the phone blocks autoplay (e.g. iOS Low Power Mode) controls appear so it can be tapped.
+ * while on screen and pause off screen, with no controls or play button; they never autoplay
+ * for reduced-motion users.
  */
 function LazyVideoComponent({
   src,
@@ -35,7 +35,6 @@ function LazyVideoComponent({
 }: LazyVideoProps) {
   const [ref, inView] = useInView<HTMLVideoElement>({ once: false, rootMargin: '300px' });
   const [loaded, setLoaded] = useState(false);
-  const [blocked, setBlocked] = useState(false);
   const reducedMotion = usePrefersReducedMotion();
   const autoplay = ambient && !reducedMotion;
 
@@ -57,13 +56,28 @@ function LazyVideoComponent({
   useEffect(() => {
     const video = ref.current;
     if (!video || !autoplay || !loaded) return;
-    if (inView) {
-      video.play().catch(() => {
-        setBlocked(true);
-      });
-    } else {
+    if (!inView) {
       video.pause();
+      return;
     }
+    // If the phone blocks autoplay (e.g. iOS Low Power Mode), try again on the visitor's first
+    // touch or click anywhere: browsers allow playback once the page has a user gesture.
+    const retry = () => {
+      video.play().catch(() => {
+        /* Still blocked; the poster stays. */
+      });
+    };
+    let active = true;
+    video.play().catch(() => {
+      if (!active) return;
+      document.addEventListener('touchend', retry, { once: true, passive: true });
+      document.addEventListener('click', retry, { once: true });
+    });
+    return () => {
+      active = false;
+      document.removeEventListener('touchend', retry);
+      document.removeEventListener('click', retry);
+    };
   }, [inView, autoplay, loaded, ref]);
 
   return (
@@ -80,9 +94,10 @@ function LazyVideoComponent({
       muted={ambient}
       loop={ambient}
       autoPlay={autoplay}
-      controls={!ambient || blocked}
+      controls={!ambient}
       aria-label={label}
-      aria-hidden={(ambient && !blocked) || undefined}
+      aria-hidden={ambient || undefined}
+      $ambient={ambient}
     />
   );
 }

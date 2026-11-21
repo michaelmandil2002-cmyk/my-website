@@ -1,15 +1,11 @@
 import styled from 'styled-components';
 
-import { media } from '@/styles/media';
+import { sectionSpacing } from '@/styles/section';
 
 export const StyledContact = styled.section`
-  padding-block: ${({ theme }) => theme.space['3xl']};
+  ${sectionSpacing}
   color: ${({ theme }) => theme.colors.onPrimary};
   background-color: ${({ theme }) => theme.colors.text};
-
-  ${media.lg} {
-    padding-block: ${({ theme }) => theme.space['4xl']};
-  }
 
   :focus-visible {
     outline-color: ${({ theme }) => theme.colors.onPrimary};

@@ -1,4 +1,4 @@
-// Generated from the Super Play "good" folder, in the order of its file numbers (1, 2, 3 ...).
+// Generated from the Superplay "good" folder, in the order of its file numbers (1, 2, 3 ...).
 import type { MediaImage, MediaVideo } from '@/data/types';
 
 export type SuperPlayTile =

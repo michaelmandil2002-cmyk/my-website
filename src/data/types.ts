@@ -17,7 +17,15 @@ export interface MediaVideo {
 export type ProjectBlock =
   | { readonly kind: 'heading'; readonly text: string }
   | { readonly kind: 'text'; readonly text: string }
-  | { readonly kind: 'image'; readonly image: MediaImage };
+  | { readonly kind: 'video'; readonly video: MediaVideo }
+  | {
+      /** A row of images copied from the old site: widths are % of the content area. */
+      readonly kind: 'row';
+      readonly images: readonly MediaImage[];
+      readonly widths: readonly number[];
+      /** Use the wider 72rem area (e.g. the tattoo grid). */
+      readonly wide?: boolean;
+    };
 
 export type ProjectCategory =
   'UX / UI' | 'Branding' | 'Illustration' | 'Social Media' | 'Graphic Design';

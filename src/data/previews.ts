@@ -3,30 +3,6 @@ import type { MediaVideo } from '@/data/types';
 
 export const SUPERPLAY_PREVIEWS: readonly MediaVideo[] = [
   {
-    src: 'work/previews/preview-01.mp4',
-    poster: 'work/previews/poster/preview-01.jpg',
-    width: 640,
-    height: 296,
-  },
-  {
-    src: 'work/previews/preview-02.mp4',
-    poster: 'work/previews/poster/preview-02.jpg',
-    width: 640,
-    height: 296,
-  },
-  {
-    src: 'work/previews/preview-04.mp4',
-    poster: 'work/previews/poster/preview-04.jpg',
-    width: 640,
-    height: 296,
-  },
-  {
-    src: 'work/previews/preview-07.mp4',
-    poster: 'work/previews/poster/preview-07.jpg',
-    width: 640,
-    height: 296,
-  },
-  {
     src: 'work/previews/preview-08.mp4',
     poster: 'work/previews/poster/preview-08.jpg',
     width: 640,
@@ -51,8 +27,26 @@ export const SUPERPLAY_PREVIEWS: readonly MediaVideo[] = [
     height: 296,
   },
   {
-    src: 'work/previews/preview-10.mp4',
-    poster: 'work/previews/poster/preview-10.jpg',
+    src: 'work/previews/preview-01.mp4',
+    poster: 'work/previews/poster/preview-01.jpg',
+    width: 640,
+    height: 296,
+  },
+  {
+    src: 'work/previews/preview-02.mp4',
+    poster: 'work/previews/poster/preview-02.jpg',
+    width: 640,
+    height: 296,
+  },
+  {
+    src: 'work/previews/preview-04.mp4',
+    poster: 'work/previews/poster/preview-04.jpg',
+    width: 640,
+    height: 296,
+  },
+  {
+    src: 'work/previews/preview-07.mp4',
+    poster: 'work/previews/poster/preview-07.jpg',
     width: 640,
     height: 296,
   },

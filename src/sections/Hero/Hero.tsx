@@ -20,8 +20,6 @@ export function Hero() {
             sizes="(min-width: 1024px) 34vw, 80vw"
             width={CAT.width}
             height={CAT.height}
-            alt="Hand-drawn illustration of a cat"
-            fetchPriority="high"
           />
         </Layout>
       </Container>
