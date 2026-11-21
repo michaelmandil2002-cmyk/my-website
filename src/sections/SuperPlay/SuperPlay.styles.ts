@@ -68,14 +68,6 @@ export const TileButton = styled.button`
   background: none;
   border: 0;
   cursor: zoom-in;
-
-  img {
-    transition: transform ${({ theme }) => theme.transitions.base};
-  }
-
-  &:hover img {
-    transform: scale(1.03);
-  }
 `;
 
 export const More = styled.div`

@@ -274,6 +274,7 @@ export const PROJECTS: readonly Project[] = [
         },
       },
     ],
+    blurb: 'App design for a social network where dogs find their playmates',
     cover: {
       src: 'work/facewoof/thumb.jpg',
       width: 1200,
@@ -415,6 +416,7 @@ export const PROJECTS: readonly Project[] = [
         },
       },
     ],
+    blurb: 'UX research for an app that fits meals and exercise into study schedules',
     cover: {
       src: 'work/smartfit/thumb.jpg',
       width: 1200,
@@ -509,6 +511,7 @@ export const PROJECTS: readonly Project[] = [
         },
       },
     ],
+    blurb: "My own take on Tank's painting “Complexity of Being”",
     cover: {
       src: 'work/baby-chick/thumb.jpg',
       width: 1200,
@@ -655,6 +658,7 @@ export const PROJECTS: readonly Project[] = [
         },
       },
     ],
+    blurb: 'A snack brand born from a meerkat illustration',
     cover: {
       src: 'work/sorry-nut-sorry/thumb.jpg',
       width: 1200,
@@ -709,6 +713,7 @@ export const PROJECTS: readonly Project[] = [
         text: 'Finally, a visual summary of the assembled dish shows all choices, allowing users to click and modify any step.',
       },
     ],
+    blurb: 'A kiosk interface for building your dream cake, step by step',
     cover: {
       src: 'work/to-cake-or-not-to-cake/thumb.jpg',
       width: 1200,
@@ -786,6 +791,7 @@ export const PROJECTS: readonly Project[] = [
         },
       },
     ],
+    blurb: 'Social media posts for a swimwear brand',
     cover: {
       src: 'work/kiwi-swim/thumb.jpg',
       width: 1200,
@@ -875,6 +881,7 @@ export const PROJECTS: readonly Project[] = [
         },
       },
     ],
+    blurb: 'A new visual identity for an existing music festival',
     cover: {
       src: 'work/music-festival-rebranding/thumb.jpg',
       width: 1200,
@@ -965,6 +972,7 @@ export const PROJECTS: readonly Project[] = [
         },
       },
     ],
+    blurb: 'Youthful, vibrant branding for an imaginary music festival',
     cover: {
       src: 'work/wonder-fest/thumb.jpg',
       width: 1200,
@@ -1067,6 +1075,7 @@ export const PROJECTS: readonly Project[] = [
         },
       },
     ],
+    blurb: 'An avocado illustration grown into a full brand and merch',
     cover: {
       src: 'work/avocado-brand/thumb.jpg',
       width: 1200,
@@ -1157,6 +1166,7 @@ export const PROJECTS: readonly Project[] = [
         },
       },
     ],
+    blurb: 'Packaging and identity for a chocolate bar brand',
     cover: {
       src: 'work/chocolate-brand/thumb.jpg',
       width: 1200,
@@ -1318,6 +1328,7 @@ export const PROJECTS: readonly Project[] = [
         },
       },
     ],
+    blurb: 'Managing and designing social media content for a client',
     cover: {
       src: 'work/social-media-management/thumb.jpg',
       width: 1200,

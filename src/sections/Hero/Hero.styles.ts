@@ -2,24 +2,32 @@ import styled from 'styled-components';
 
 import { media } from '@/styles/media';
 
+/** Fills the first screen (below the header), so the next section starts only after scrolling. */
 export const StyledHero = styled.section`
-  padding-top: ${({ theme }) => theme.space['2xl']};
-  padding-bottom: ${({ theme }) => theme.space['3xl']};
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - ${({ theme }) => theme.layout.headerHeight});
+  min-height: calc(100svh - ${({ theme }) => theme.layout.headerHeight});
+  padding-block: ${({ theme }) => theme.space.xl};
 
-  ${media.lg} {
-    padding-top: ${({ theme }) => theme.space['3xl']};
+  > * {
+    flex: 1;
   }
 `;
 
-/** Phones: text, then the drawing below. Desktop: text left, drawing right. */
+/**
+ * Phones: the drawing on top, then the text.
+ * Desktop: text and drawing side by side as one compact group, centered on the page.
+ */
 export const Layout = styled.div`
   display: grid;
   gap: ${({ theme }) => theme.space.xl};
   align-items: center;
 
   ${media.lg} {
-    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-    gap: ${({ theme }) => theme.space['2xl']};
+    grid-template-columns: minmax(0, 36rem) minmax(0, 22rem);
+    justify-content: center;
+    column-gap: 4rem;
   }
 `;
 
@@ -28,14 +36,16 @@ export const Text = styled.div`
 `;
 
 export const Art = styled.img`
+  order: -1;
   justify-self: center;
   width: 100%;
-  max-width: 18rem;
+  max-width: 15rem;
   height: auto;
 
   ${media.lg} {
-    justify-self: end;
-    max-width: 24rem;
+    order: 0;
+    justify-self: center;
+    max-width: 22rem;
   }
 `;
 
@@ -52,4 +62,8 @@ export const Name = styled.h1`
 export const Lead = styled.p`
   max-width: 38rem;
   font-size: ${({ theme }) => theme.fontSizes.lg};
+
+  ${media.lg} {
+    font-size: ${({ theme }) => theme.fontSizes.xl};
+  }
 `;

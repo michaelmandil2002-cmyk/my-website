@@ -1,4 +1,4 @@
-// Generated from the Super Play "good" folder. Edit freely.
+// Generated from the Super Play "good" folder, in the order of its file numbers (1, 2, 3 ...).
 import type { MediaImage, MediaVideo } from '@/data/types';
 
 export type SuperPlayTile =
@@ -43,15 +43,6 @@ export const SUPERPLAY_POSTS: readonly SuperPlayTile[] = [
     },
   },
   {
-    kind: 'video',
-    video: {
-      src: 'work/superplay/video/ad-01.mp4',
-      poster: 'work/superplay/poster/ad-01.jpg',
-      width: 720,
-      height: 720,
-    },
-  },
-  {
     kind: 'image',
     image: {
       src: 'work/superplay/04.jpg',
@@ -76,55 +67,10 @@ export const SUPERPLAY_POSTS: readonly SuperPlayTile[] = [
     },
   },
   {
-    kind: 'image',
-    image: {
-      src: 'work/superplay/06.jpg',
-      width: 1080,
-      height: 1080,
-      small: {
-        src: 'work/superplay/06-540.jpg',
-        width: 540,
-      },
-    },
-  },
-  {
-    kind: 'image',
-    image: {
-      src: 'work/superplay/07.jpg',
-      width: 1080,
-      height: 1080,
-      small: {
-        src: 'work/superplay/07-540.jpg',
-        width: 540,
-      },
-    },
-  },
-  {
     kind: 'video',
     video: {
-      src: 'work/superplay/video/ad-02.mp4',
-      poster: 'work/superplay/poster/ad-02.jpg',
-      width: 720,
-      height: 720,
-    },
-  },
-  {
-    kind: 'image',
-    image: {
-      src: 'work/superplay/08.jpg',
-      width: 1080,
-      height: 1080,
-      small: {
-        src: 'work/superplay/08-540.jpg',
-        width: 540,
-      },
-    },
-  },
-  {
-    kind: 'video',
-    video: {
-      src: 'work/superplay/video/ad-03.mp4',
-      poster: 'work/superplay/poster/ad-03.jpg',
+      src: 'work/superplay/video/06.mp4',
+      poster: 'work/superplay/poster/06.jpg',
       width: 720,
       height: 720,
     },
@@ -132,10 +78,64 @@ export const SUPERPLAY_POSTS: readonly SuperPlayTile[] = [
   {
     kind: 'video',
     video: {
-      src: 'work/superplay/video/ad-04.mp4',
-      poster: 'work/superplay/poster/ad-04.jpg',
+      src: 'work/superplay/video/07.mp4',
+      poster: 'work/superplay/poster/07.jpg',
       width: 720,
       height: 720,
+    },
+  },
+  {
+    kind: 'video',
+    video: {
+      src: 'work/superplay/video/08.mp4',
+      poster: 'work/superplay/poster/08.jpg',
+      width: 720,
+      height: 720,
+    },
+  },
+  {
+    kind: 'image',
+    image: {
+      src: 'work/superplay/09.jpg',
+      width: 1080,
+      height: 1080,
+      small: {
+        src: 'work/superplay/09-540.jpg',
+        width: 540,
+      },
+    },
+  },
+  {
+    kind: 'image',
+    image: {
+      src: 'work/superplay/10.jpg',
+      width: 1080,
+      height: 1080,
+      small: {
+        src: 'work/superplay/10-540.jpg',
+        width: 540,
+      },
+    },
+  },
+  {
+    kind: 'video',
+    video: {
+      src: 'work/superplay/video/11.mp4',
+      poster: 'work/superplay/poster/11.jpg',
+      width: 720,
+      height: 720,
+    },
+  },
+  {
+    kind: 'image',
+    image: {
+      src: 'work/superplay/12.jpg',
+      width: 1080,
+      height: 1080,
+      small: {
+        src: 'work/superplay/12-540.jpg',
+        width: 540,
+      },
     },
   },
 ];

@@ -39,8 +39,8 @@ export const SUPERPLAY_PREVIEWS: readonly MediaVideo[] = [
     height: 296,
   },
   {
-    src: 'work/previews/preview-10.mp4',
-    poster: 'work/previews/poster/preview-10.jpg',
+    src: 'work/previews/preview-12.mp4',
+    poster: 'work/previews/poster/preview-12.jpg',
     width: 640,
     height: 296,
   },
@@ -51,8 +51,8 @@ export const SUPERPLAY_PREVIEWS: readonly MediaVideo[] = [
     height: 296,
   },
   {
-    src: 'work/previews/preview-12.mp4',
-    poster: 'work/previews/poster/preview-12.jpg',
+    src: 'work/previews/preview-10.mp4',
+    poster: 'work/previews/poster/preview-10.jpg',
     width: 640,
     height: 296,
   },

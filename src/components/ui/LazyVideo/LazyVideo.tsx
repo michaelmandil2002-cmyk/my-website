@@ -1,50 +1,51 @@
-import { memo, useEffect } from 'react';
+import { memo, useEffect, useState } from 'react';
 
 import { StyledVideo } from '@/components/ui/LazyVideo/LazyVideo.styles';
 import { useInView } from '@/hooks/useInView';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
-export interface VideoSource {
-  readonly src: string;
-  /** e.g. 'video/webm; codecs="av01.0.05M.08"' or "video/mp4". List best-first. */
-  readonly type: string;
-}
-
 export interface LazyVideoProps {
-  readonly sources: readonly VideoSource[];
+  /** H.264 MP4: plays everywhere, including iPhone and Android. */
+  readonly src: string;
   /** Poster image shown before load. Strongly recommended to avoid blank frames. */
   readonly poster?: string;
   readonly width: number;
   readonly height: number;
-  /** Decorative background-style video: muted, looped, inline, no controls. */
+  /** Decorative background-style video: muted, looped, inline, autoplaying, no controls. */
   readonly ambient?: boolean;
   /** Accessible label (required for non-ambient videos). */
   readonly label?: string;
-  /** Stops an ambient video (e.g. from a user's pause control). */
-  readonly paused?: boolean;
   readonly className?: string;
 }
 
 /**
- * Defers fetching video until it approaches the viewport. Ambient videos only play
- * while visible and never autoplay for users who prefer reduced motion.
+ * Loads the video only once it first comes near the viewport, then keeps its source for good
+ * (removing and re-adding a source leaves iOS Safari with a dead player). Ambient videos play
+ * while on screen and pause off screen; they never autoplay for reduced-motion users, and if
+ * the phone blocks autoplay (e.g. iOS Low Power Mode) controls appear so it can be tapped.
  */
 function LazyVideoComponent({
-  sources,
+  src,
   poster,
   width,
   height,
   ambient = false,
   label,
-  paused = false,
   className,
 }: LazyVideoProps) {
-  const [ref, inView] = useInView<HTMLVideoElement>({ once: !ambient, rootMargin: '300px' });
+  const [ref, inView] = useInView<HTMLVideoElement>({ once: false, rootMargin: '300px' });
+  const [loaded, setLoaded] = useState(false);
+  const [blocked, setBlocked] = useState(false);
   const reducedMotion = usePrefersReducedMotion();
-  const shouldAutoplay = ambient && !reducedMotion && !paused;
+  const autoplay = ambient && !reducedMotion;
 
-  // React sets `muted` only as a property; iOS Safari also checks the attribute before it
-  // allows inline autoplay, so mirror it onto the element (and keep it after reloads).
+  // Once near the screen, attach the source permanently.
+  useEffect(() => {
+    if (inView) setLoaded(true);
+  }, [inView]);
+
+  // iOS checks the muted *attribute* (React only sets the property) before allowing
+  // inline autoplay, so set it on mount, before the source is attached.
   useEffect(() => {
     const video = ref.current;
     if (!video || !ambient) return;
@@ -55,35 +56,34 @@ function LazyVideoComponent({
 
   useEffect(() => {
     const video = ref.current;
-    if (!video || !ambient) return;
-
-    if (inView && shouldAutoplay) {
+    if (!video || !autoplay || !loaded) return;
+    if (inView) {
       video.play().catch(() => {
-        /* Autoplay can be blocked by the browser; the poster remains visible. */
+        setBlocked(true);
       });
     } else {
       video.pause();
     }
-  }, [inView, ambient, shouldAutoplay, ref]);
+  }, [inView, autoplay, loaded, ref]);
 
   return (
     <StyledVideo
       ref={ref}
       className={className}
+      src={loaded ? src : undefined}
       poster={poster}
       width={width}
       height={height}
       $ratio={`${width} / ${height}`}
-      preload="none"
+      preload={loaded ? 'auto' : 'none'}
       playsInline
       muted={ambient}
       loop={ambient}
-      controls={!ambient}
+      autoPlay={autoplay}
+      controls={!ambient || blocked}
       aria-label={label}
-      aria-hidden={ambient || undefined}
-    >
-      {inView && sources.map((s) => <source key={s.src} src={s.src} type={s.type} />)}
-    </StyledVideo>
+      aria-hidden={(ambient && !blocked) || undefined}
+    />
   );
 }
 

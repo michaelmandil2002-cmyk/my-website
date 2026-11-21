@@ -21,9 +21,6 @@ export function Work() {
           eyebrow={`${String(PROJECTS.length)} projects`}
           title="Selected"
           highlight="Work"
-          aside={
-            <p>Branding, UX / UI, illustration and social media, from studio to client work.</p>
-          }
         />
 
         <Filters role="group" aria-label="Filter projects by category">

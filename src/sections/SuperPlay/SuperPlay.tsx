@@ -41,7 +41,7 @@ export function SuperPlay() {
               tile.kind === 'video' ? (
                 <Tile key={tile.video.src}>
                   <LazyVideo
-                    sources={[{ src: asset(tile.video.src), type: 'video/mp4' }]}
+                    src={asset(tile.video.src)}
                     poster={asset(tile.video.poster)}
                     width={tile.video.width}
                     height={tile.video.height}

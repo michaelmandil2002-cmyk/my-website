@@ -47,6 +47,16 @@ describe('Disney Solitaire previews', () => {
   });
 });
 
+describe('Disney Solitaire posts', () => {
+  it('follow the numbering of the files in the "good" folder (1, 2, 3 ...)', () => {
+    const numbers = SUPERPLAY_POSTS.map((tile) => {
+      const src = tile.kind === 'image' ? tile.image.src : tile.video.src;
+      return Number(/(\d+)\.(jpg|mp4)$/.exec(src)?.[1]);
+    });
+    expect(numbers).toEqual(numbers.map((_, i) => i + 1));
+  });
+});
+
 describe('projects', () => {
   it('have unique slugs', () => {
     const slugs = PROJECTS.map((p) => p.slug);
@@ -56,6 +66,10 @@ describe('projects', () => {
   it.each(PROJECTS.map((p) => [p.slug, p] as const))('%s has a title and content', (_, p) => {
     expect(p.title.trim()).not.toBe('');
     expect(p.blocks.length).toBeGreaterThan(0);
+    if (p.blurb !== undefined) {
+      expect(p.blurb.trim().length, 'short card description').toBeGreaterThan(10);
+      expect(p.blurb.length).toBeLessThanOrEqual(90);
+    }
   });
 
   it.each(PROJECTS.map((p) => [p.slug, p] as const))(

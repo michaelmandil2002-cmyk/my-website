@@ -10,7 +10,7 @@ import {
   StyledHeader,
 } from '@/components/layout/Header/Header.styles';
 import { Container } from '@/components/ui/Container/Container';
-import { NAV_LINKS, SITE } from '@/constants/site';
+import { asset, NAV_LINKS, SITE } from '@/constants/site';
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -38,7 +38,10 @@ export function Header() {
     <StyledHeader>
       <Container>
         <Bar>
-          <Brand href="#top">{SITE.name}</Brand>
+          <Brand href="#top">
+            {/* Hand-lettered logo; the alt text keeps the name readable for screen readers and search. */}
+            <img src={asset('art/logo.png')} alt={SITE.name} width={600} height={78} />
+          </Brand>
 
           <MenuToggle
             type="button"

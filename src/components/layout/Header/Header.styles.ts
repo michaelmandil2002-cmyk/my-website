@@ -23,11 +23,15 @@ export const Brand = styled.a`
   display: inline-flex;
   align-items: center;
   min-height: 2.75rem;
-  font-size: ${({ theme }) => theme.fontSizes.lg};
-  font-weight: ${({ theme }) => theme.fontWeights.medium};
-  line-height: 1;
-  letter-spacing: ${({ theme }) => theme.letterSpacings.snug};
-  text-decoration: none;
+
+  img {
+    width: auto;
+    height: 1rem;
+
+    ${media.md} {
+      height: 1.125rem;
+    }
+  }
 `;
 
 export const MenuToggle = styled.button`

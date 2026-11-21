@@ -1,6 +1,29 @@
 import { createGlobalStyle } from 'styled-components';
 
+/** A black dot with a thin white ring (so it stays visible on black areas and videos). */
+const circleCursor = (size: number) => {
+  const r = size / 2;
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${String(size)}' height='${String(size)}'><circle cx='${String(r)}' cy='${String(r)}' r='${String(r - 1)}' fill='#111111' stroke='#ffffff' stroke-width='1.5'/></svg>`;
+  return `url("data:image/svg+xml,${encodeURIComponent(svg)}") ${String(r)} ${String(r)}`;
+};
+
 export const GlobalStyle = createGlobalStyle`
+  /* Mouse users get a black circle cursor; it grows over anything clickable. */
+  @media (hover: hover) and (pointer: fine) {
+    html {
+      cursor: ${circleCursor(16)}, auto;
+    }
+
+    a,
+    button,
+    [role='button'],
+    label,
+    select,
+    summary {
+      cursor: ${circleCursor(28)}, pointer !important;
+    }
+  }
+
   *,
   *::before,
   *::after {

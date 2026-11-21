@@ -1,11 +1,7 @@
 export { Button, type ButtonProps } from '@/components/ui/Button/Button';
 export { Container } from '@/components/ui/Container/Container';
 export { Lightbox, type LightboxImage } from '@/components/ui/Lightbox/Lightbox';
-export {
-  LazyVideo,
-  type LazyVideoProps,
-  type VideoSource,
-} from '@/components/ui/LazyVideo/LazyVideo';
+export { LazyVideo, type LazyVideoProps } from '@/components/ui/LazyVideo/LazyVideo';
 export {
   ResponsiveImage,
   type ImageSource,

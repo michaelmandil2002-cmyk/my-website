@@ -40,7 +40,7 @@ export const theme = {
     '2xl': '1.5rem',
     '3xl': 'clamp(1.75rem, 3vw + 1rem, 2.75rem)',
     section: 'clamp(2.5rem, 6vw + 1rem, 5rem)',
-    display: 'clamp(2.75rem, 10vw, 8.5rem)',
+    display: 'clamp(2.75rem, 9vw, 8rem)',
   },
   fontWeights: {
     regular: 400,

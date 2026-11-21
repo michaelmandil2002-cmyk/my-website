@@ -19,6 +19,30 @@ test('serves the built site, not the source files', async ({ request }) => {
   expect((await request.get(script ?? '')).ok(), 'JS bundle did not load').toBe(true);
 });
 
+test('header shows the hand-lettered logo', async ({ page }) => {
+  await page.goto('./');
+  const logo = page.getByRole('banner').getByRole('img', { name: 'Michael Mandil' });
+  await expect(logo).toBeVisible();
+  expect(await logo.evaluate((img) => (img as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  await expect(logo).toHaveAttribute('src', /logo\.png$/);
+});
+
+test('mouse cursor is a black circle, larger over links', async ({ page, isMobile }) => {
+  test.skip(isMobile, 'touch screens have no cursor');
+  await page.goto('./');
+  const cursorOf = (selector: string) =>
+    page
+      .locator(selector)
+      .first()
+      .evaluate((el) => getComputedStyle(el).cursor);
+  const base = await cursorOf('body');
+  const link = await cursorOf('header nav a');
+  expect(base).toContain('data:image/svg+xml');
+  expect(decodeURIComponent(base)).toContain('<circle');
+  expect(decodeURIComponent(base)).toContain("fill='#111111'");
+  expect(decodeURIComponent(link)).toContain("width='28'");
+});
+
 test('uses the custom favicon', async ({ page, request }) => {
   await page.goto('./');
   const href = await page.locator('link[rel="icon"]').getAttribute('href');
@@ -42,25 +66,66 @@ test('home page renders every section with working media', async ({ page }) => {
   await expectNoHorizontalScroll(page);
 });
 
-test('Disney Solitaire event videos show in a grid, play and pause', async ({ page }) => {
+test('Disney Solitaire event videos autoplay and keep playing after scrolling away', async ({
+  page,
+}) => {
   await page.goto('./#superplay');
   await expect(
     page.locator('section[aria-labelledby="hero-title"] video'),
     'hero has no videos',
   ).toHaveCount(0);
   const grid = page.getByRole('list', { name: 'In-game event videos' });
-  // Videos only play while on screen, so bring the In-Game grid into view first.
-  await grid.scrollIntoViewIfNeeded();
   await expect(grid.getByRole('listitem')).toHaveCount(SUPERPLAY_PREVIEWS.length);
+  await expect(
+    page.getByRole('button', { name: /Pause|Play videos/ }),
+    'no pause button',
+  ).toHaveCount(0);
   await expect(grid.locator('p, strong'), 'videos have no titles or dates').toHaveCount(0);
-  const videos = grid.locator('video');
-  const playing = () =>
-    videos.evaluateAll((nodes) => nodes.filter((v) => !(v as HTMLVideoElement).paused).length);
-  await expect.poll(playing, { message: 'no event video is playing' }).toBeGreaterThan(0);
-  await page.getByRole('button', { name: /Pause videos/ }).click();
-  await expect.poll(playing, { message: 'videos kept playing after pause' }).toBe(0);
-  await page.getByRole('button', { name: /Play videos/ }).click();
-  await expect.poll(playing).toBeGreaterThan(0);
+
+  const first = grid.locator('video').first();
+  const playing = () => first.evaluate((v) => !(v as HTMLVideoElement).paused);
+  // Videos only play while on screen, so bring the In-Game grid into view first.
+  await first.scrollIntoViewIfNeeded();
+  await expect.poll(playing, { message: 'video did not autoplay' }).toBe(true);
+
+  // Phones used to lose the source when a video left the screen; it must come back playing.
+  await page.evaluate(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  });
+  await expect.poll(playing, { message: 'video kept playing off screen' }).toBe(false);
+  await first.scrollIntoViewIfNeeded();
+  await expect(first).toHaveAttribute('src', /\.mp4$/);
+  await expect.poll(playing, { message: 'video did not resume after scrolling back' }).toBe(true);
+});
+
+test('first screen shows only the intro; Disney Solitaire starts after scrolling', async ({
+  page,
+}) => {
+  await page.goto('./');
+  await expect(page.getByRole('heading', { level: 1 })).toBeInViewport({ ratio: 1 });
+  await expect(page.getByRole('img', { name: 'Hand-drawn illustration of a cat' })).toBeInViewport({
+    ratio: 1,
+  });
+  await expect(page.locator('h1 + p'), 'whole bio visible').toBeInViewport({ ratio: 1 });
+  await expect(page.locator('#superplay-title')).not.toBeInViewport();
+});
+
+test('cat sits above the title on phones and beside it on desktop', async ({ page, isMobile }) => {
+  await page.goto('./');
+  const cat = await page
+    .getByRole('img', { name: 'Hand-drawn illustration of a cat' })
+    .boundingBox();
+  const title = await page.getByRole('heading', { level: 1 }).boundingBox();
+  if (!cat || !title) throw new Error('hero not rendered');
+  if (isMobile) {
+    expect(cat.y + cat.height, 'cat is above the title').toBeLessThanOrEqual(title.y);
+  } else {
+    expect(cat.x, 'cat is to the right of the title').toBeGreaterThan(title.x + title.width / 2);
+    const viewport = page.viewportSize()?.width ?? 0;
+    expect(viewport - (cat.x + cat.width), 'cat keeps clear of the screen edge').toBeGreaterThan(
+      48,
+    );
+  }
 });
 
 test('images and videos have square corners', async ({ page }) => {
@@ -110,6 +175,75 @@ test('work card opens its project and "All work" returns to the grid', async ({ 
   expect(await page.evaluate(() => window.scrollY), 'project page did not open at the top').toBe(0);
   await page.getByRole('link', { name: '← All work' }).click();
   await expect(page.getByRole('heading', { level: 2, name: /Selected\s*Work/ })).toBeInViewport();
+});
+
+test('work cards: title and description panel slides up on hover, sits under the image on touch', async ({
+  page,
+  isMobile,
+}) => {
+  await page.goto('./#work');
+  // The first card (tattoos) has no description; use the second.
+  const card = page.locator('#work li a').nth(1);
+  await card.scrollIntoViewIfNeeded();
+  const title = card.locator('h3');
+  const blurb = card.locator('h3 + p');
+  await expect(blurb).not.toBeEmpty();
+  const style = (el: Element) => {
+    const computed = getComputedStyle(el);
+    return { color: computed.color, weight: Number(computed.fontWeight) };
+  };
+  const titleStyle = await title.evaluate(style);
+  const blurbStyle = await blurb.evaluate(style);
+  expect(titleStyle.color, 'black title').toBe('rgb(17, 17, 17)');
+  expect(blurbStyle.color, 'black description').toBe('rgb(17, 17, 17)');
+  expect(titleStyle.weight, 'title bolder than description').toBeGreaterThan(blurbStyle.weight);
+  const panel = title.locator('..');
+  const transform = () => panel.evaluate((el) => getComputedStyle(el).transform);
+  const image = card.locator('img').first();
+  const imageBox = async () => {
+    const box = await image.boundingBox();
+    if (!box) throw new Error('no image');
+    return box;
+  };
+
+  if (isMobile) {
+    await expect.poll(transform, { message: 'touch: no slide animation' }).toBe('none');
+    const panelBox = await panel.boundingBox();
+    expect((panelBox?.y ?? 0) + 1, 'touch: panel sits under the image').toBeGreaterThanOrEqual(
+      (await imageBox()).y + (await imageBox()).height,
+    );
+    await card.hover();
+    expect(await image.evaluate((el) => getComputedStyle(el).transform), 'touch: no zoom').toBe(
+      'none',
+    );
+  } else {
+    await expect
+      .poll(transform, { message: 'hidden below the image until hover' })
+      .not.toBe('none');
+    await card.hover();
+    await expect.poll(transform, { message: 'slides up on hover' }).toBe('none');
+    expect(await image.evaluate((el) => getComputedStyle(el).transform), 'no zoom on hover').toBe(
+      'none',
+    );
+    // Compare with the card frame: the image itself zooms 3% on hover and pokes past it.
+    const panelBox = await panel.boundingBox();
+    const frameBox = await panel.locator('..').boundingBox();
+    expect(
+      Math.abs(
+        (panelBox?.y ?? 0) +
+          (panelBox?.height ?? 0) -
+          ((frameBox?.y ?? 0) + (frameBox?.height ?? 0)),
+      ),
+      'panel sits at the bottom of the image',
+    ).toBeLessThan(2);
+  }
+});
+
+test('tattoo card shows only its title, no description', async ({ page }) => {
+  await page.goto('./#work');
+  const card = page.locator('#work li a', { hasText: 'Tattoo Artist' });
+  await expect(card.locator('h3')).toHaveText("I'm Also A Tattoo Artist!");
+  await expect(card.locator('h3 + p')).toHaveCount(0);
 });
 
 test('work filters narrow the grid', async ({ page }) => {

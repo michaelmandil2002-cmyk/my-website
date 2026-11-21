@@ -27,6 +27,8 @@ export interface Project {
   readonly title: string;
   readonly category: ProjectCategory;
   readonly summary: string;
+  /** Optional one line shown on the Work card. */
+  readonly blurb?: string;
   readonly cover?: MediaImage;
   readonly blocks: readonly ProjectBlock[];
 }
