@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Website</title>
+    <meta
+      name="description"
+      content="A fast, accessible starter website built with React, TypeScript and Vite."
+    />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="color-scheme" content="light" />
+
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <!-- Preload the LCP hero image so it starts downloading before JS runs. -->
+    <link rel="preload" as="image" href="%BASE_URL%images/hero.svg" fetchpriority="high" />
+
+    <!-- Open Graph / social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="My Website" />
+    <meta
+      property="og:description"
+      content="A fast, accessible starter website built with React, TypeScript and Vite."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>This site works best with JavaScript enabled.</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
