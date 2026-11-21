@@ -1,4 +1,6 @@
+import { SUPERPLAY_PREVIEWS } from '@/data/previews';
 import { PROJECTS } from '@/data/projects';
+import { SUPERPLAY_POSTS } from '@/data/superplay';
 
 import {
   expect,
@@ -19,13 +21,30 @@ test('serves the built site, not the source files', async ({ request }) => {
 
 test('home page renders every section with working media', async ({ page }) => {
   await page.goto('./');
-  await expect(page.getByRole('heading', { level: 1, name: 'Michael Mandil' })).toBeVisible();
-  for (const name of [/Super Play/, /Selected\s*Work/, /Hi, I’m Michael!/, /Let’s make/]) {
+  await expect(page.getByRole('heading', { level: 1, name: 'Hi, I’m Michael!' })).toBeVisible();
+  for (const name of [/Selected\s*Work/, /Let’s make/]) {
     await expect(page.getByRole('heading', { level: 2, name })).toBeVisible();
   }
   await scrollToBottom(page);
   await expectImagesLoaded(page);
   await expectNoHorizontalScroll(page);
+});
+
+test('Disney Solitaire previews scroll, play and can be paused', async ({ page }) => {
+  await page.goto('./#superplay');
+  const videos = page.locator('#superplay [aria-hidden="true"] video');
+  await expect(videos).toHaveCount(SUPERPLAY_PREVIEWS.length * 2);
+  await expect(
+    page.locator('section[aria-labelledby="hero-title"] video'),
+    'hero has no videos',
+  ).toHaveCount(0);
+  const playing = () =>
+    videos.evaluateAll((nodes) => nodes.filter((v) => !(v as HTMLVideoElement).paused).length);
+  await expect.poll(playing, { message: 'no preview is playing' }).toBeGreaterThan(0);
+  await page.getByRole('button', { name: /Pause previews/ }).click();
+  await expect.poll(playing, { message: 'previews kept playing after pause' }).toBe(0);
+  await page.getByRole('button', { name: /Play previews/ }).click();
+  await expect.poll(playing).toBeGreaterThan(0);
 });
 
 test('every project page opens', async ({ page }) => {
@@ -47,6 +66,7 @@ test('work card opens its project and "All work" returns to the grid', async ({ 
     .first()
     .click();
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(first.title);
+  expect(await page.evaluate(() => window.scrollY), 'project page did not open at the top').toBe(0);
   await page.getByRole('link', { name: '← All work' }).click();
   await expect(page.getByRole('heading', { level: 2, name: /Selected\s*Work/ })).toBeInViewport();
 });
@@ -65,9 +85,40 @@ test('work filters narrow the grid', async ({ page }) => {
   expect(branding).toBeLessThan(all);
 });
 
-test('Super Play posts enlarge, and media files are reachable', async ({ page, request }) => {
+test('removed content stays off the site', async ({ page }) => {
+  await page.goto('./');
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+  // The menu is collapsed on phones, so match the links whether or not they are visible.
+  const navLinks = page.locator('header nav a');
+  await expect(navLinks.filter({ hasText: 'Disney Solitaire' })).toHaveCount(1);
+  await expect(navLinks.filter({ hasText: 'Super Play' })).toHaveCount(0);
+  await expect(page.locator('a[href*="instagram.com"]'), 'Instagram links').toHaveCount(0);
+  await expect(page.getByText(/instagram|mink\.tatts/i), 'Instagram mentions').toHaveCount(0);
+  await expect(page.locator('#about'), 'About section').toHaveCount(0);
+  for (const name of ['See my work', 'Get in touch']) {
+    await expect(page.getByRole('link', { name: new RegExp(name) })).toHaveCount(0);
+  }
+  for (const text of [
+    'Experience',
+    'Education',
+    'Skills',
+    'Statement T-Shirts',
+    'Recipe Page Design',
+    'Anime Convention Design',
+    'Aviv Geffen Album Cover',
+  ]) {
+    await expect(page.getByText(text, { exact: true })).toHaveCount(0);
+  }
+});
+
+test('Super Play posts show under a "Disney Solitaire" title, enlarge and expand', async ({
+  page,
+}) => {
   await page.goto('./#superplay');
-  await page
+  const section = page.getByRole('region', { name: 'Disney Solitaire' });
+  await expect(section.getByRole('heading', { level: 2 })).toHaveText('Disney Solitaire');
+  await expect(section.getByText(/Featured|Social media/)).toHaveCount(0);
+  await section
     .getByRole('button', { name: /^Enlarge/ })
     .first()
     .click();
@@ -75,15 +126,19 @@ test('Super Play posts enlarge, and media files are reachable', async ({ page, r
   await expect(dialog).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(dialog).toBeHidden();
+  await section.getByRole('button', { name: /^Show all/ }).click();
+  await expect(
+    section.getByRole('list', { name: 'Disney Solitaire posts' }).getByRole('listitem'),
+  ).toHaveCount(SUPERPLAY_POSTS.length);
+});
 
-  await page.getByRole('button', { name: /^Show all/ }).click();
-  await expect(page.getByRole('button', { name: 'Show less' })).toBeVisible();
-
-  const videos = await page
+test('preview posters are reachable', async ({ page, request }) => {
+  await page.goto('./');
+  const posters = await page
     .locator('video')
     .evaluateAll((nodes) => nodes.map((v) => (v as HTMLVideoElement).poster));
-  expect(videos.length).toBeGreaterThan(0);
-  for (const poster of videos.slice(0, 3)) {
+  expect(posters.length).toBeGreaterThan(0);
+  for (const poster of [...new Set(posters)]) {
     expect((await request.get(poster)).ok(), poster).toBe(true);
   }
 });
@@ -92,6 +147,6 @@ test('mobile menu opens and links to a section', async ({ page, isMobile }) => {
   test.skip(!isMobile, 'menu button only exists on small screens');
   await page.goto('./#/work/facewoof');
   await page.getByRole('button', { name: 'Open menu' }).click();
-  await page.getByRole('link', { name: 'About' }).click();
-  await expect(page.getByRole('heading', { level: 2, name: 'Hi, I’m Michael!' })).toBeInViewport();
+  await page.getByRole('link', { name: 'Contact' }).click();
+  await expect(page.getByRole('heading', { level: 2, name: /Let’s make/ })).toBeInViewport();
 });

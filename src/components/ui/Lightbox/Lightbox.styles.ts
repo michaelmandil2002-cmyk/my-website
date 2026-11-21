@@ -11,7 +11,7 @@ export const Dialog = styled.dialog`
   border: 0;
 
   &::backdrop {
-    background: rgb(17 17 17 / 0.92);
+    background: ${({ theme }) => theme.colors.overlay};
   }
 
   &[open] {

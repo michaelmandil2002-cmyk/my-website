@@ -3,8 +3,8 @@ import type { ReactNode } from 'react';
 import {
   Aside,
   Eyebrow,
-  Sans,
-  Serif,
+  Large,
+  Small,
   StyledHeading,
   Title,
   Titles,
@@ -12,23 +12,23 @@ import {
 
 interface SectionHeadingProps {
   readonly id: string;
-  /** First line, set in sans-serif. */
+  /** First, smaller line. */
   readonly title: string;
-  /** Second line, set in the display serif. */
-  readonly serif: string;
+  /** Second, large line. */
+  readonly highlight: string;
   readonly eyebrow?: string;
   readonly aside?: ReactNode;
 }
 
-/** Two-line section title: a sans line over a large serif line. */
-export function SectionHeading({ id, title, serif, eyebrow, aside }: SectionHeadingProps) {
+/** Two-line section title: a smaller line over a large one. */
+export function SectionHeading({ id, title, highlight, eyebrow, aside }: SectionHeadingProps) {
   return (
     <StyledHeading>
       <Titles>
         {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
         <Title id={id}>
-          <Sans>{title}</Sans>
-          <Serif>{serif}</Serif>
+          <Small>{title}</Small>
+          <Large>{highlight}</Large>
         </Title>
       </Titles>
       {aside && <Aside>{aside}</Aside>}

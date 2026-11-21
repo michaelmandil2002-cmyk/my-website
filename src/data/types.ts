@@ -29,5 +29,4 @@ export interface Project {
   readonly summary: string;
   readonly cover?: MediaImage;
   readonly blocks: readonly ProjectBlock[];
-  readonly link?: { readonly label: string; readonly href: string };
 }

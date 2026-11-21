@@ -1,61 +1,29 @@
 import styled from 'styled-components';
 
+import { VideoStrip } from '@/components/ui/VideoStrip/VideoStrip';
+
 import { media } from '@/styles/media';
 
 export const StyledSuperPlay = styled.section`
-  padding-block: ${({ theme }) => theme.space['3xl']};
-  background-color: ${({ theme }) => theme.colors.surface};
+  background-color: ${({ theme }) => theme.colors.band};
+  padding-block: ${({ theme }) => theme.space['2xl']};
 
   ${media.lg} {
-    padding-block: ${({ theme }) => theme.space['4xl']};
+    padding-block: ${({ theme }) => theme.space['3xl']};
   }
 `;
 
-export const SubHeading = styled.h3`
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: ${({ theme }) => theme.space.md};
-  margin-bottom: ${({ theme }) => theme.space.lg};
-  font-size: ${({ theme }) => theme.fontSizes.xl};
-  font-weight: ${({ theme }) => theme.fontWeights.medium};
-
-  small {
-    font-size: ${({ theme }) => theme.fontSizes.sm};
-    font-weight: ${({ theme }) => theme.fontWeights.regular};
-    color: ${({ theme }) => theme.colors.textMuted};
-  }
+export const Title = styled.h2`
+  margin-bottom: ${({ theme }) => theme.space.xl};
+  font-size: ${({ theme }) => theme.fontSizes.section};
+  color: ${({ theme }) => theme.colors.heading};
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
+  line-height: ${({ theme }) => theme.lineHeights.none};
+  letter-spacing: ${({ theme }) => theme.letterSpacings.tight};
 `;
 
-export const Events = styled.ul`
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: min(85%, 26rem);
-  gap: ${({ theme }) => theme.space.md};
-  margin-bottom: ${({ theme }) => theme.space['3xl']};
-  padding: 0 0 ${({ theme }) => theme.space.md};
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
-  list-style: none;
-
-  ${media.md} {
-    grid-auto-columns: 26rem;
-  }
-`;
-
-export const Event = styled.li`
-  scroll-snap-align: start;
-
-  video {
-    border-radius: ${({ theme }) => theme.radii.lg};
-  }
-
-  p {
-    margin-top: ${({ theme }) => theme.space.sm};
-    font-size: ${({ theme }) => theme.fontSizes.sm};
-    color: ${({ theme }) => theme.colors.textMuted};
-  }
+export const Previews = styled(VideoStrip)`
+  margin-bottom: ${({ theme }) => theme.space.xl};
 `;
 
 export const Grid = styled.ul`
@@ -75,8 +43,7 @@ export const Grid = styled.ul`
   }
 `;
 
-export const Tile = styled.li<{ readonly $wide: boolean }>`
-  grid-column: ${({ $wide }) => ($wide ? 'span 2' : 'auto')};
+export const Tile = styled.li`
   overflow: hidden;
   border-radius: ${({ theme }) => theme.radii.md};
 
@@ -88,7 +55,7 @@ export const Tile = styled.li<{ readonly $wide: boolean }>`
   video {
     width: 100%;
     height: 100%;
-    aspect-ratio: ${({ $wide }) => ($wide ? 'auto' : '1')};
+    aspect-ratio: 1;
     object-fit: cover;
   }
 `;

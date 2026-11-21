@@ -8,20 +8,27 @@ const breakpoints = {
 export type Breakpoint = keyof typeof breakpoints;
 
 export const theme = {
+  /** Cream, pink, cobalt and purple from "The Hecate Kin" reference; magenta deepened for readable buttons. */
   colors: {
-    primary: '#111111',
-    primaryHover: '#333333',
+    primary: '#c8207a',
+    primaryHover: '#a81866',
     onPrimary: '#ffffff',
-    text: '#111111',
-    textMuted: '#5f5f5f',
-    background: '#ffffff',
-    surface: '#f4f3f0',
-    border: '#e4e2dd',
-    focus: '#ff5a1f',
+    text: '#360678',
+    textMuted: '#5e4a86',
+    /** Large titles: the reference's cobalt blue. */
+    heading: '#2442cc',
+    background: '#fff6e7',
+    backgroundTranslucent: 'rgb(255 246 231 / 0.9)',
+    /** Image and video placeholders while loading. */
+    surface: '#f6ead6',
+    /** Bright pale pink behind the Disney Solitaire and Contact sections. */
+    band: '#ffe6eb',
+    border: '#f2b4c0',
+    focus: '#2442cc',
+    overlay: 'rgb(54 6 120 / 0.94)',
   },
   fonts: {
-    body: "'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
-    serif: "'Instrument Serif', 'Times New Roman', Georgia, serif",
+    body: "'Google Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
     mono: "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace",
   },
   fontSizes: {
@@ -33,12 +40,22 @@ export const theme = {
     '2xl': '1.5rem',
     '3xl': 'clamp(1.75rem, 3vw + 1rem, 2.75rem)',
     section: 'clamp(2.5rem, 6vw + 1rem, 5rem)',
-    display: 'clamp(3.5rem, 15vw, 13rem)',
+    display: 'clamp(2.75rem, 10vw, 8.5rem)',
   },
   fontWeights: {
     regular: 400,
     medium: 500,
     bold: 600,
+  },
+  letterSpacings: {
+    /** Body text, buttons, labels. */
+    normal: '-0.025em',
+    /** Logo and small headings. */
+    snug: '-0.035em',
+    /** Section and page headings. */
+    tight: '-0.05em',
+    /** Largest titles. */
+    tighter: '-0.06em',
   },
   lineHeights: {
     none: 0.9,

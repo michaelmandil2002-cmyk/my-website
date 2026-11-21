@@ -10,15 +10,13 @@ export interface NavLink {
 }
 
 export const NAV_LINKS: readonly NavLink[] = [
-  { label: 'Super Play', href: '#superplay' },
+  { label: 'Disney Solitaire', href: '#superplay' },
   { label: 'Work', href: '#work' },
-  { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ];
 
 export const SOCIAL_LINKS: readonly NavLink[] = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/michael-mandil/' },
-  { label: 'Instagram', href: 'https://www.instagram.com/mink.tatts' },
 ];
 
 /** Builds a URL for a file in /public that works under the GitHub Pages base path. */

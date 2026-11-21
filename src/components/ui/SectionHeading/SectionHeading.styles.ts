@@ -30,21 +30,20 @@ export const Eyebrow = styled.p`
 
 export const Title = styled.h2`
   font-size: ${({ theme }) => theme.fontSizes.section};
+  color: ${({ theme }) => theme.colors.heading};
   font-weight: ${({ theme }) => theme.fontWeights.regular};
   line-height: ${({ theme }) => theme.lineHeights.none};
-  letter-spacing: -0.03em;
+  letter-spacing: ${({ theme }) => theme.letterSpacings.tight};
 `;
 
-export const Sans = styled.span`
+export const Small = styled.span`
   display: block;
-  font-family: ${({ theme }) => theme.fonts.body};
   font-size: 0.62em;
-  letter-spacing: -0.04em;
+  letter-spacing: ${({ theme }) => theme.letterSpacings.tighter};
 `;
 
-export const Serif = styled.span`
+export const Large = styled.span`
   display: block;
-  font-family: ${({ theme }) => theme.fonts.serif};
 `;
 
 export const Aside = styled.div`

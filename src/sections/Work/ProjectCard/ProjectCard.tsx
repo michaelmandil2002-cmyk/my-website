@@ -6,7 +6,7 @@ import { projectHref } from '@/hooks/useHashRoute';
 import {
   CardLink,
   CardMedia,
-  CardText,
+  CardTitle,
   TextCover,
 } from '@/sections/Work/ProjectCard/ProjectCard.styles';
 import { imageProps } from '@/utils/media';
@@ -29,10 +29,7 @@ function ProjectCardComponent({ project }: ProjectCardProps) {
           <TextCover aria-hidden="true">{project.title}</TextCover>
         )}
       </CardMedia>
-      <CardText>
-        <h3>{project.title}</h3>
-        <span>{project.category}</span>
-      </CardText>
+      <CardTitle>{project.title}</CardTitle>
     </CardLink>
   );
 }

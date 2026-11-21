@@ -20,6 +20,8 @@ export interface LazyVideoProps {
   readonly ambient?: boolean;
   /** Accessible label (required for non-ambient videos). */
   readonly label?: string;
+  /** Stops an ambient video (e.g. from a user's pause control). */
+  readonly paused?: boolean;
   readonly className?: string;
 }
 
@@ -34,24 +36,25 @@ function LazyVideoComponent({
   height,
   ambient = false,
   label,
+  paused = false,
   className,
 }: LazyVideoProps) {
   const [ref, inView] = useInView<HTMLVideoElement>({ once: !ambient, rootMargin: '300px' });
   const reducedMotion = usePrefersReducedMotion();
-  const shouldAutoplay = ambient && !reducedMotion;
+  const shouldAutoplay = ambient && !reducedMotion && !paused;
 
   useEffect(() => {
     const video = ref.current;
-    if (!video || !shouldAutoplay) return;
+    if (!video || !ambient) return;
 
-    if (inView) {
+    if (inView && shouldAutoplay) {
       video.play().catch(() => {
         /* Autoplay can be blocked by the browser; the poster remains visible. */
       });
     } else {
       video.pause();
     }
-  }, [inView, shouldAutoplay, ref]);
+  }, [inView, ambient, shouldAutoplay, ref]);
 
   return (
     <StyledVideo

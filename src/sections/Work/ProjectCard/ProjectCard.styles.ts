@@ -10,7 +10,8 @@ export const CardLink = styled.a`
 `;
 
 export const CardMedia = styled.div`
-  aspect-ratio: 4 / 3;
+  /* Same crop as the thumbnails on the previous Adobe Portfolio site. */
+  aspect-ratio: 202 / 158;
   overflow: hidden;
   border-radius: ${({ theme }) => theme.radii.lg};
   background-color: ${({ theme }) => theme.colors.surface};
@@ -31,29 +32,14 @@ export const TextCover = styled.div`
   align-items: flex-end;
   height: 100%;
   padding: ${({ theme }) => theme.space.lg};
-  font-family: ${({ theme }) => theme.fonts.serif};
   font-size: ${({ theme }) => theme.fontSizes['3xl']};
   line-height: ${({ theme }) => theme.lineHeights.tight};
   color: ${({ theme }) => theme.colors.onPrimary};
   background-color: ${({ theme }) => theme.colors.text};
 `;
 
-export const CardText = styled.div`
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: ${({ theme }) => theme.space.md};
+export const CardTitle = styled.h3`
   margin-top: ${({ theme }) => theme.space.md};
-
-  h3 {
-    min-width: 0;
-    font-size: ${({ theme }) => theme.fontSizes.lg};
-    font-weight: ${({ theme }) => theme.fontWeights.medium};
-  }
-
-  span {
-    flex: none;
-    font-size: ${({ theme }) => theme.fontSizes.sm};
-    color: ${({ theme }) => theme.colors.textMuted};
-  }
+  font-size: ${({ theme }) => theme.fontSizes.lg};
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
 `;

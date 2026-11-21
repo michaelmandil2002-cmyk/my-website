@@ -6,7 +6,7 @@ export const StyledHeader = styled.header`
   position: sticky;
   top: 0;
   z-index: ${({ theme }) => theme.zIndices.header};
-  background-color: rgb(255 255 255 / 0.92);
+  background-color: ${({ theme }) => theme.colors.backgroundTranslucent};
   backdrop-filter: saturate(180%) blur(10px);
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 `;
@@ -23,10 +23,10 @@ export const Brand = styled.a`
   display: inline-flex;
   align-items: center;
   min-height: 2.75rem;
-  font-family: ${({ theme }) => theme.fonts.serif};
-  font-size: ${({ theme }) => theme.fontSizes['2xl']};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
   line-height: 1;
-  letter-spacing: -0.01em;
+  letter-spacing: ${({ theme }) => theme.letterSpacings.snug};
   text-decoration: none;
 `;
 

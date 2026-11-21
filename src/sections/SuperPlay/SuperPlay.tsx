@@ -5,24 +5,24 @@ import { Container } from '@/components/ui/Container/Container';
 import { LazyVideo } from '@/components/ui/LazyVideo/LazyVideo';
 import { Lightbox, type LightboxImage } from '@/components/ui/Lightbox/Lightbox';
 import { ResponsiveImage } from '@/components/ui/ResponsiveImage/ResponsiveImage';
-import { SectionHeading } from '@/components/ui/SectionHeading/SectionHeading';
 import { asset } from '@/constants/site';
-import { SUPERPLAY_EVENTS, SUPERPLAY_POSTS } from '@/data/superplay';
+import { SUPERPLAY_PREVIEWS } from '@/data/previews';
+import { SUPERPLAY_POSTS } from '@/data/superplay';
 import {
-  Event,
-  Events,
   Grid,
   More,
+  Previews,
   StyledSuperPlay,
-  SubHeading,
   Tile,
   TileButton,
+  Title,
 } from '@/sections/SuperPlay/SuperPlay.styles';
 import { imageProps } from '@/utils/media';
 
 const INITIAL_POSTS = 12;
 const POST_ALT = 'Disney Solitaire social media post';
 
+/** Disney Solitaire posts and ads made at Super Play. */
 export function SuperPlay() {
   const [showAll, setShowAll] = useState(false);
   const [zoomed, setZoomed] = useState<LightboxImage | null>(null);
@@ -31,44 +31,16 @@ export function SuperPlay() {
   return (
     <StyledSuperPlay id="superplay" aria-labelledby="superplay-title">
       <Container>
-        <SectionHeading
-          id="superplay-title"
-          eyebrow="Featured · 2025 — now"
-          title="Super Play"
-          serif="Disney Solitaire"
-          aside={
-            <p>
-              Social media posts, short ad videos and in-game event screens I design for Disney
-              Solitaire at Super Play.
-            </p>
-          }
-        />
+        <Title id="superplay-title">Disney Solitaire</Title>
+      </Container>
 
-        <SubHeading>
-          In-game events <small>Swipe →</small>
-        </SubHeading>
-        <Events aria-label="In-game event recordings">
-          {SUPERPLAY_EVENTS.map(({ label, video }) => (
-            <Event key={video.src}>
-              <LazyVideo
-                sources={[{ src: asset(video.src), type: 'video/mp4' }]}
-                poster={asset(video.poster)}
-                width={video.width}
-                height={video.height}
-                label={`Disney Solitaire in-game event, ${label}`}
-              />
-              <p>{label}</p>
-            </Event>
-          ))}
-        </Events>
+      <Previews videos={SUPERPLAY_PREVIEWS} />
 
-        <SubHeading>
-          Social media & ads <small>{SUPERPLAY_POSTS.length} pieces</small>
-        </SubHeading>
-        <Grid>
+      <Container>
+        <Grid aria-label="Disney Solitaire posts">
           {posts.map((tile) =>
             tile.kind === 'video' ? (
-              <Tile key={tile.video.src} $wide={false}>
+              <Tile key={tile.video.src}>
                 <LazyVideo
                   sources={[{ src: asset(tile.video.src), type: 'video/mp4' }]}
                   poster={asset(tile.video.poster)}
@@ -78,7 +50,7 @@ export function SuperPlay() {
                 />
               </Tile>
             ) : (
-              <Tile key={tile.image.src} $wide={tile.image.width > tile.image.height * 1.5}>
+              <Tile key={tile.image.src}>
                 <TileButton
                   type="button"
                   aria-label={`Enlarge ${POST_ALT}`}

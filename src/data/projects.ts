@@ -190,17 +190,13 @@ export const PROJECTS: readonly Project[] = [
       },
     ],
     cover: {
-      src: 'work/tattoo-artist/01.jpg',
-      width: 1600,
-      height: 1600,
+      src: 'work/tattoo-artist/thumb.jpg',
+      width: 1200,
+      height: 939,
       small: {
-        src: 'work/tattoo-artist/01-800.jpg',
-        width: 800,
+        src: 'work/tattoo-artist/thumb-600.jpg',
+        width: 600,
       },
-    },
-    link: {
-      label: 'Follow @mink.tatts',
-      href: 'https://www.instagram.com/mink.tatts',
     },
   },
   {
@@ -279,12 +275,12 @@ export const PROJECTS: readonly Project[] = [
       },
     ],
     cover: {
-      src: 'work/facewoof/cover.jpg',
-      width: 1600,
-      height: 900,
+      src: 'work/facewoof/thumb.jpg',
+      width: 1200,
+      height: 938,
       small: {
-        src: 'work/facewoof/cover-800.jpg',
-        width: 800,
+        src: 'work/facewoof/thumb-600.jpg',
+        width: 600,
       },
     },
   },
@@ -420,12 +416,12 @@ export const PROJECTS: readonly Project[] = [
       },
     ],
     cover: {
-      src: 'work/smartfit/03.jpg',
-      width: 1600,
-      height: 900,
+      src: 'work/smartfit/thumb.jpg',
+      width: 1200,
+      height: 938,
       small: {
-        src: 'work/smartfit/03-800.jpg',
-        width: 800,
+        src: 'work/smartfit/thumb-600.jpg',
+        width: 600,
       },
     },
   },
@@ -514,12 +510,12 @@ export const PROJECTS: readonly Project[] = [
       },
     ],
     cover: {
-      src: 'work/baby-chick/01.jpg',
-      width: 1082,
-      height: 1600,
+      src: 'work/baby-chick/thumb.jpg',
+      width: 1200,
+      height: 938,
       small: {
-        src: 'work/baby-chick/01-800.jpg',
-        width: 541,
+        src: 'work/baby-chick/thumb-600.jpg',
+        width: 600,
       },
     },
   },
@@ -660,12 +656,12 @@ export const PROJECTS: readonly Project[] = [
       },
     ],
     cover: {
-      src: 'work/sorry-nut-sorry/01.jpg',
-      width: 1042,
-      height: 1408,
+      src: 'work/sorry-nut-sorry/thumb.jpg',
+      width: 1200,
+      height: 939,
       small: {
-        src: 'work/sorry-nut-sorry/01-800.jpg',
-        width: 592,
+        src: 'work/sorry-nut-sorry/thumb-600.jpg',
+        width: 600,
       },
     },
   },
@@ -713,6 +709,15 @@ export const PROJECTS: readonly Project[] = [
         text: 'Finally, a visual summary of the assembled dish shows all choices, allowing users to click and modify any step.',
       },
     ],
+    cover: {
+      src: 'work/to-cake-or-not-to-cake/thumb.jpg',
+      width: 1200,
+      height: 938,
+      small: {
+        src: 'work/to-cake-or-not-to-cake/thumb-600.jpg',
+        width: 600,
+      },
+    },
   },
   {
     slug: 'kiwi-swim',
@@ -782,12 +787,12 @@ export const PROJECTS: readonly Project[] = [
       },
     ],
     cover: {
-      src: 'work/kiwi-swim/01.jpg',
-      width: 1600,
-      height: 1200,
+      src: 'work/kiwi-swim/thumb.jpg',
+      width: 1200,
+      height: 938,
       small: {
-        src: 'work/kiwi-swim/01-800.jpg',
-        width: 800,
+        src: 'work/kiwi-swim/thumb-600.jpg',
+        width: 600,
       },
     },
   },
@@ -871,12 +876,12 @@ export const PROJECTS: readonly Project[] = [
       },
     ],
     cover: {
-      src: 'work/music-festival-rebranding/01.jpg',
-      width: 1600,
-      height: 1066,
+      src: 'work/music-festival-rebranding/thumb.jpg',
+      width: 1200,
+      height: 938,
       small: {
-        src: 'work/music-festival-rebranding/01-800.jpg',
-        width: 800,
+        src: 'work/music-festival-rebranding/thumb-600.jpg',
+        width: 600,
       },
     },
   },
@@ -961,12 +966,12 @@ export const PROJECTS: readonly Project[] = [
       },
     ],
     cover: {
-      src: 'work/wonder-fest/01.jpg',
-      width: 899,
-      height: 1600,
+      src: 'work/wonder-fest/thumb.jpg',
+      width: 1200,
+      height: 938,
       small: {
-        src: 'work/wonder-fest/01-800.jpg',
-        width: 449,
+        src: 'work/wonder-fest/thumb-600.jpg',
+        width: 600,
       },
     },
   },
@@ -1063,65 +1068,12 @@ export const PROJECTS: readonly Project[] = [
       },
     ],
     cover: {
-      src: 'work/avocado-brand/01.jpg',
-      width: 1369,
-      height: 1600,
+      src: 'work/avocado-brand/thumb.jpg',
+      width: 1200,
+      height: 938,
       small: {
-        src: 'work/avocado-brand/01-800.jpg',
-        width: 684,
-      },
-    },
-  },
-  {
-    slug: 'aviv-geffen',
-    title: 'Aviv Geffen Album Cover',
-    category: 'Illustration',
-    summary: "I illustrated Aviv Geffen's album cover and made my own back.",
-    blocks: [
-      {
-        kind: 'image',
-        image: {
-          src: 'work/aviv-geffen/01.jpg',
-          width: 1600,
-          height: 1200,
-          small: {
-            src: 'work/aviv-geffen/01-800.jpg',
-            width: 800,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/aviv-geffen/02.jpg',
-          width: 1418,
-          height: 1418,
-          small: {
-            src: 'work/aviv-geffen/02-800.jpg',
-            width: 800,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/aviv-geffen/03.jpg',
-          width: 1600,
-          height: 1280,
-          small: {
-            src: 'work/aviv-geffen/03-800.jpg',
-            width: 800,
-          },
-        },
-      },
-    ],
-    cover: {
-      src: 'work/aviv-geffen/01.jpg',
-      width: 1600,
-      height: 1200,
-      small: {
-        src: 'work/aviv-geffen/01-800.jpg',
-        width: 800,
+        src: 'work/avocado-brand/thumb-600.jpg',
+        width: 600,
       },
     },
   },
@@ -1206,12 +1158,12 @@ export const PROJECTS: readonly Project[] = [
       },
     ],
     cover: {
-      src: 'work/chocolate-brand/01.jpg',
-      width: 1600,
-      height: 1600,
+      src: 'work/chocolate-brand/thumb.jpg',
+      width: 1200,
+      height: 938,
       small: {
-        src: 'work/chocolate-brand/01-800.jpg',
-        width: 800,
+        src: 'work/chocolate-brand/thumb-600.jpg',
+        width: 600,
       },
     },
   },
@@ -1367,239 +1319,12 @@ export const PROJECTS: readonly Project[] = [
       },
     ],
     cover: {
-      src: 'work/social-media-management/01.jpg',
-      width: 900,
-      height: 1600,
+      src: 'work/social-media-management/thumb.jpg',
+      width: 1200,
+      height: 937,
       small: {
-        src: 'work/social-media-management/01-800.jpg',
-        width: 450,
-      },
-    },
-  },
-  {
-    slug: 'anime-convention',
-    title: 'Anime Convention Design',
-    category: 'Graphic Design',
-    summary: '',
-    blocks: [
-      {
-        kind: 'image',
-        image: {
-          src: 'work/anime-convention/01.jpg',
-          width: 1080,
-          height: 1080,
-          small: {
-            src: 'work/anime-convention/01-800.jpg',
-            width: 800,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/anime-convention/02.jpg',
-          width: 1080,
-          height: 1080,
-          small: {
-            src: 'work/anime-convention/02-800.jpg',
-            width: 800,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/anime-convention/03.jpg',
-          width: 1080,
-          height: 1080,
-          small: {
-            src: 'work/anime-convention/03-800.jpg',
-            width: 800,
-          },
-        },
-      },
-    ],
-    cover: {
-      src: 'work/anime-convention/01.jpg',
-      width: 1080,
-      height: 1080,
-      small: {
-        src: 'work/anime-convention/01-800.jpg',
-        width: 800,
-      },
-    },
-  },
-  {
-    slug: 'recipe-page',
-    title: 'Recipe Page Design',
-    category: 'Graphic Design',
-    summary: '',
-    blocks: [
-      {
-        kind: 'image',
-        image: {
-          src: 'work/recipe-page/01.jpg',
-          width: 1600,
-          height: 930,
-          small: {
-            src: 'work/recipe-page/01-800.jpg',
-            width: 800,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/recipe-page/02.jpg',
-          width: 1600,
-          height: 1131,
-          small: {
-            src: 'work/recipe-page/02-800.jpg',
-            width: 800,
-          },
-        },
-      },
-    ],
-    cover: {
-      src: 'work/recipe-page/01.jpg',
-      width: 1600,
-      height: 930,
-      small: {
-        src: 'work/recipe-page/01-800.jpg',
-        width: 800,
-      },
-    },
-  },
-  {
-    slug: 'statement-t-shirts',
-    title: 'Statement T-Shirts',
-    category: 'Illustration',
-    summary: '',
-    blocks: [
-      {
-        kind: 'heading',
-        text: 'How it started',
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/statement-t-shirts/01.jpg',
-          width: 1131,
-          height: 1600,
-          small: {
-            src: 'work/statement-t-shirts/01-800.jpg',
-            width: 565,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/statement-t-shirts/02.jpg',
-          width: 1131,
-          height: 1600,
-          small: {
-            src: 'work/statement-t-shirts/02-800.jpg',
-            width: 565,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/statement-t-shirts/03.jpg',
-          width: 1131,
-          height: 1600,
-          small: {
-            src: 'work/statement-t-shirts/03-800.jpg',
-            width: 565,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/statement-t-shirts/04.jpg',
-          width: 1131,
-          height: 1600,
-          small: {
-            src: 'work/statement-t-shirts/04-800.jpg',
-            width: 565,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/statement-t-shirts/05.jpg',
-          width: 1131,
-          height: 1600,
-          small: {
-            src: 'work/statement-t-shirts/05-800.jpg',
-            width: 565,
-          },
-        },
-      },
-      {
-        kind: 'heading',
-        text: 'How it ended',
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/statement-t-shirts/06.jpg',
-          width: 1600,
-          height: 1200,
-          small: {
-            src: 'work/statement-t-shirts/06-800.jpg',
-            width: 800,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/statement-t-shirts/07.jpg',
-          width: 1600,
-          height: 1200,
-          small: {
-            src: 'work/statement-t-shirts/07-800.jpg',
-            width: 800,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/statement-t-shirts/08.jpg',
-          width: 1600,
-          height: 1200,
-          small: {
-            src: 'work/statement-t-shirts/08-800.jpg',
-            width: 800,
-          },
-        },
-      },
-      {
-        kind: 'image',
-        image: {
-          src: 'work/statement-t-shirts/09.jpg',
-          width: 900,
-          height: 1600,
-          small: {
-            src: 'work/statement-t-shirts/09-800.jpg',
-            width: 450,
-          },
-        },
-      },
-    ],
-    cover: {
-      src: 'work/statement-t-shirts/06.jpg',
-      width: 1600,
-      height: 1200,
-      small: {
-        src: 'work/statement-t-shirts/06-800.jpg',
-        width: 800,
+        src: 'work/social-media-management/thumb-600.jpg',
+        width: 600,
       },
     },
   },

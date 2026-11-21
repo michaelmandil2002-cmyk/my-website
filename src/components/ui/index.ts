@@ -12,4 +12,5 @@ export {
   type ResponsiveImageProps,
 } from '@/components/ui/ResponsiveImage/ResponsiveImage';
 export { SectionHeading } from '@/components/ui/SectionHeading/SectionHeading';
+export { VideoStrip } from '@/components/ui/VideoStrip/VideoStrip';
 export { SkipLink } from '@/components/ui/SkipLink/SkipLink';

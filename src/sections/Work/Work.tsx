@@ -20,7 +20,7 @@ export function Work() {
           id="work-title"
           eyebrow={`${String(PROJECTS.length)} projects`}
           title="Selected"
-          serif="Work"
+          highlight="Work"
           aside={
             <p>Branding, UX / UI, illustration and social media, from studio to client work.</p>
           }

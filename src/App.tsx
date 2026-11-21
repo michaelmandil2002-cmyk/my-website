@@ -5,7 +5,7 @@ import { MainLayout } from '@/components/layout';
 import { SITE } from '@/constants/site';
 import { useHashRoute } from '@/hooks/useHashRoute';
 import { ProjectPage } from '@/pages/ProjectPage/ProjectPage';
-import { About, Contact, Hero, SuperPlay, Work } from '@/sections';
+import { Contact, Hero, SuperPlay, Work } from '@/sections';
 import { GlobalStyle } from '@/styles/GlobalStyle';
 import { theme } from '@/styles/theme';
 
@@ -14,7 +14,8 @@ export function App() {
 
   useEffect(() => {
     if (route.page === 'project') {
-      window.scrollTo({ top: 0 });
+      // A new page starts at the top immediately, not with a smooth scroll through the old one.
+      window.scrollTo({ top: 0, behavior: 'instant' });
       return;
     }
     document.title = `${SITE.name} — ${SITE.role}`;
@@ -33,7 +34,6 @@ export function App() {
             <Hero />
             <SuperPlay />
             <Work />
-            <About />
             <Contact />
           </>
         )}

@@ -4,26 +4,29 @@ import { media } from '@/styles/media';
 
 export const StyledContact = styled.section`
   padding-block: ${({ theme }) => theme.space['3xl']};
-  color: ${({ theme }) => theme.colors.onPrimary};
-  background-color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.band};
 
   ${media.lg} {
     padding-block: ${({ theme }) => theme.space['4xl']};
+  }
+
+  :focus-visible {
+    outline-color: ${({ theme }) => theme.colors.text};
   }
 `;
 
 export const Eyebrow = styled.p`
   font-size: ${({ theme }) => theme.fontSizes.sm};
-  opacity: 0.7;
 `;
 
 export const Title = styled.h2`
   margin-block: ${({ theme }) => theme.space.md} ${({ theme }) => theme.space.xl};
-  font-family: ${({ theme }) => theme.fonts.serif};
   font-size: ${({ theme }) => theme.fontSizes.section};
+  color: ${({ theme }) => theme.colors.heading};
   font-weight: ${({ theme }) => theme.fontWeights.regular};
   line-height: ${({ theme }) => theme.lineHeights.none};
-  letter-spacing: -0.03em;
+  letter-spacing: ${({ theme }) => theme.letterSpacings.tight};
 `;
 
 export const Email = styled.a`
@@ -44,14 +47,4 @@ export const Links = styled.div`
   flex-wrap: wrap;
   gap: ${({ theme }) => theme.space.sm};
   margin-top: ${({ theme }) => theme.space['2xl']};
-
-  a {
-    color: ${({ theme }) => theme.colors.onPrimary};
-  }
-
-  a:hover {
-    color: ${({ theme }) => theme.colors.text};
-    background-color: ${({ theme }) => theme.colors.onPrimary};
-    border-color: ${({ theme }) => theme.colors.onPrimary};
-  }
 `;

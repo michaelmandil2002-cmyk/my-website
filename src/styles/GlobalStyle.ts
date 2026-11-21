@@ -28,6 +28,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${({ theme }) => theme.fonts.body};
     font-size: ${({ theme }) => theme.fontSizes.base};
     line-height: ${({ theme }) => theme.lineHeights.base};
+    letter-spacing: ${({ theme }) => theme.letterSpacings.normal};
     color: ${({ theme }) => theme.colors.text};
     background-color: ${({ theme }) => theme.colors.background};
     -webkit-font-smoothing: antialiased;
@@ -54,6 +55,7 @@ export const GlobalStyle = createGlobalStyle`
   textarea,
   select {
     font: inherit;
+    letter-spacing: inherit;
   }
 
   h1,

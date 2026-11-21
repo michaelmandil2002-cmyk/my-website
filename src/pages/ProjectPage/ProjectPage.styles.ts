@@ -26,11 +26,11 @@ export const Head = styled.header`
   margin-block: ${({ theme }) => theme.space.xl} ${({ theme }) => theme.space['2xl']};
 
   h1 {
-    font-family: ${({ theme }) => theme.fonts.serif};
     font-size: ${({ theme }) => theme.fontSizes.section};
+    color: ${({ theme }) => theme.colors.heading};
     font-weight: ${({ theme }) => theme.fontWeights.regular};
     line-height: ${({ theme }) => theme.lineHeights.none};
-    letter-spacing: -0.03em;
+    letter-spacing: ${({ theme }) => theme.letterSpacings.tight};
 
     &:focus {
       outline: none;
@@ -94,7 +94,6 @@ export const Next = styled.a`
   }
 
   strong {
-    font-family: ${({ theme }) => theme.fonts.serif};
     font-size: ${({ theme }) => theme.fontSizes['3xl']};
     font-weight: ${({ theme }) => theme.fontWeights.regular};
     line-height: ${({ theme }) => theme.lineHeights.tight};
@@ -115,8 +114,8 @@ export const NotFound = styled.div`
   padding-block: ${({ theme }) => theme.space['3xl']};
 
   h1 {
-    font-family: ${({ theme }) => theme.fonts.serif};
     font-size: ${({ theme }) => theme.fontSizes.section};
+    color: ${({ theme }) => theme.colors.heading};
     font-weight: ${({ theme }) => theme.fontWeights.regular};
   }
 `;

@@ -16,7 +16,11 @@ async function check() {
   }
   const assets = [...html.matchAll(/(?:src|href)="([^"]+\.(?:js|css|svg))"/g)].map((m) => m[1]);
   if (!assets.some((a) => a.endsWith('.js'))) return 'no JS bundle referenced in index.html';
-  for (const asset of [...assets, 'work/facewoof/cover.jpg', 'work/superplay/01-540.jpg']) {
+  for (const asset of [
+    ...assets,
+    'work/facewoof/thumb.jpg',
+    'work/previews/poster/preview-01.jpg',
+  ]) {
     const res = await fetch(new URL(asset, url), { method: 'HEAD', cache: 'no-store' });
     if (!res.ok) return `${asset} returned ${res.status}`;
   }

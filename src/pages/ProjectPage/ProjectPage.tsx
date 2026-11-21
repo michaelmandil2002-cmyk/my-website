@@ -60,13 +60,6 @@ export function ProjectPage({ slug }: ProjectPageProps) {
             {project.title}
           </h1>
           {project.summary && <p>{project.summary}</p>}
-          {project.link && (
-            <div>
-              <Button href={project.link.href} variant="secondary" target="_blank" rel="noreferrer">
-                {project.link.label} ↗
-              </Button>
-            </div>
-          )}
         </Head>
 
         <Body>
