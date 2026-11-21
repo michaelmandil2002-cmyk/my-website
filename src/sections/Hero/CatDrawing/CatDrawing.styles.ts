@@ -7,34 +7,44 @@ import { CAT_STROKES } from '@/data/catDrawing';
  * after stroke at one steady speed (body first, eyes and nose last), and the drawing stays.
  * No fades: the marker strokes cover every pixel of the drawing.
  */
-const DURATION = '4.5s';
-const DELAY = '0.3s';
-const DRAW_START = 0;
-const DRAW_END = 100;
-/** A short pen-up pause between strokes, as a share of the drawing time. */
-const PAUSE = 0.012;
+const DURATION = 4.5;
+const DELAY = 0.3;
+const PAUSE = DURATION * 0.012;
 
 const total = CAT_STROKES.reduce((sum, s) => sum + s.length, 0);
-const drawShare = 1 - PAUSE * (CAT_STROKES.length - 1);
-const pct = (n: number) => `${n.toFixed(2)}%`;
+const drawingTime = DURATION - PAUSE * (CAT_STROKES.length - 1);
+const paint = keyframes`
+  from { visibility: visible; }
+  to { visibility: visible; stroke-dashoffset: 0; }
+`;
 
-let elapsed = 0;
+let elapsed = DELAY;
 const strokeAnimations = CAT_STROKES.map((stroke, i) => {
-  const start = DRAW_START + (DRAW_END - DRAW_START) * elapsed;
-  elapsed += (stroke.length / total) * drawShare + PAUSE;
-  const end = DRAW_START + (DRAW_END - DRAW_START) * (elapsed - PAUSE);
-  const paint = keyframes`
-    0%, ${pct(start)} { stroke-dashoffset: 1; }
-    ${pct(Math.max(end, start + 0.01))}, 100% { stroke-dashoffset: 0; }
-  `;
+  const start = elapsed;
+  const duration = (stroke.length / total) * drawingTime;
+  elapsed += duration + PAUSE;
+  // The stored length is rounded. Extend the dash to cover the whole path.
+  const dash = stroke.length + 1;
   return css`
     [data-stroke='${String(i)}'] {
-      animation-name: ${paint};
+      stroke-dasharray: ${dash};
+      stroke-dashoffset: ${dash};
+      animation: ${paint} ${duration.toFixed(4)}s linear ${start.toFixed(4)}s forwards;
     }
   `;
 });
 
-export const Frame = styled.div`
+const finishedDrawing = css`
+  img {
+    opacity: 1;
+  }
+
+  svg {
+    display: none;
+  }
+`;
+
+export const Frame = styled.div<{ $ready: boolean; $failed: boolean }>`
   position: relative;
 
   img {
@@ -52,25 +62,17 @@ export const Frame = styled.div`
     height: 100%;
   }
 
+  ${strokeAnimations}
+
   [data-stroke] {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-    animation-duration: ${DURATION};
-    animation-delay: ${DELAY};
-    animation-timing-function: linear;
-    animation-fill-mode: both;
+    visibility: hidden;
+    animation-play-state: ${({ $ready }) => ($ready ? 'running' : 'paused')};
   }
 
-  ${strokeAnimations}
+  ${({ $failed }) => $failed && finishedDrawing}
 
   /* No animation for people who ask for less motion: just the finished drawing. */
   @media (prefers-reduced-motion: reduce) {
-    img {
-      opacity: 1;
-    }
-
-    svg {
-      display: none;
-    }
+    ${finishedDrawing}
   }
 `;

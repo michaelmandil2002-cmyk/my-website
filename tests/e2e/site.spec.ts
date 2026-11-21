@@ -194,7 +194,11 @@ test('the cat is painted in by a marker once on entry (and stays still for reduc
       getComputedStyle(p).animationIterationCount,
       getComputedStyle(p).animationFillMode,
     ]);
-  expect(timing, 'plays once and the drawing stays').toEqual(['1', 'both']);
+  expect(timing, 'plays once and the drawing stays').toEqual(['1', 'forwards']);
+  await expect(strokes.first()).toHaveCSS('animation-play-state', 'running');
+  await expect(strokes.first()).toHaveCSS('visibility', 'visible');
+  await expect(strokes.last()).toHaveCSS('visibility', 'hidden');
+  await expect(strokes.last()).toHaveCSS('stroke-dashoffset', '0px', { timeout: 6000 });
   const fades = await frame.evaluate((el) =>
     [el, ...el.querySelectorAll('img, svg')].map((n) => getComputedStyle(n).animationName),
   );

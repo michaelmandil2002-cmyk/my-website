@@ -44,11 +44,6 @@ export const Head = styled.header`
   }
 `;
 
-export const Category = styled.span`
-  font-size: ${({ theme }) => theme.fontSizes.sm};
-  color: ${({ theme }) => theme.colors.textMuted};
-`;
-
 export const Body = styled.div`
   --block-gap: ${({ theme }) => theme.space.lg};
 

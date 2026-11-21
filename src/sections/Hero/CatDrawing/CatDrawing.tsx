@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { asset } from '@/constants/site';
 import { CAT_MARKER_WIDTH, CAT_STROKES, CAT_VIEWBOX } from '@/data/catDrawing';
 import { Frame } from '@/sections/Hero/CatDrawing/CatDrawing.styles';
@@ -19,7 +21,7 @@ function strokes(part: 'body' | 'face') {
   return (
     <g stroke="#fff" strokeWidth={CAT_MARKER_WIDTH[part]}>
       {CAT_STROKES.map((s, i) =>
-        s.part === part ? <path key={s.d} d={s.d} pathLength={1} data-stroke={i} /> : null,
+        s.part === part ? <path key={s.d} d={s.d} data-stroke={i} /> : null,
       )}
     </g>
   );
@@ -30,8 +32,12 @@ function strokes(part: 'body' | 'face') {
  * stroke moving along the drawing's centre lines uncovers the real image underneath.
  */
 export function CatDrawing({ src, srcSet, sizes, width, height, className }: CatDrawingProps) {
+  const [artLoaded, setArtLoaded] = useState(false);
+  const [maskLoaded, setMaskLoaded] = useState(false);
+  const [failed, setFailed] = useState(false);
+
   return (
-    <Frame className={className}>
+    <Frame className={className} $ready={artLoaded && maskLoaded} $failed={failed}>
       <img
         src={src}
         srcSet={srcSet}
@@ -47,12 +53,33 @@ export function CatDrawing({ src, srcSet, sizes, width, height, className }: Cat
             <g fill="none" strokeLinecap="round" strokeLinejoin="round">
               {strokes('body')}
               {/* The eye and nose pixels in black: keeps the body's marker off them till the end. */}
-              <image href={asset('art/cat-face.png')} width={VIEW_W} height={VIEW_H} />
+              <image
+                href={asset('art/cat-face.png')}
+                width={VIEW_W}
+                height={VIEW_H}
+                onLoad={() => {
+                  setMaskLoaded(true);
+                }}
+                onError={() => {
+                  setFailed(true);
+                }}
+              />
               {strokes('face')}
             </g>
           </mask>
         </defs>
-        <image href={src} width={VIEW_W} height={VIEW_H} mask={`url(#${MASK_ID})`} />
+        <image
+          href={src}
+          width={VIEW_W}
+          height={VIEW_H}
+          mask={`url(#${MASK_ID})`}
+          onLoad={() => {
+            setArtLoaded(true);
+          }}
+          onError={() => {
+            setFailed(true);
+          }}
+        />
       </svg>
     </Frame>
   );

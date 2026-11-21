@@ -11,7 +11,6 @@ import { ImageRow } from '@/pages/ProjectPage/ImageRow/ImageRow';
 import {
   Back,
   Body,
-  Category,
   Head,
   Next,
   NotFound,
@@ -58,7 +57,6 @@ export function ProjectPage({ slug }: ProjectPageProps) {
         <Back href="#work">← All work</Back>
 
         <Head>
-          <Category>{project.category}</Category>
           <h1 id="project-title" ref={titleRef} tabIndex={-1}>
             {project.title}
           </h1>
