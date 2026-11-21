@@ -1,15 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
 
-/** The site cursor: a plain black dot, the same everywhere. */
+/** The site cursor: a black dot with a white outline. */
 const CURSOR_SIZE = 22;
+const CURSOR_STROKE = 2;
 const circleCursor = () => {
-  const r = CURSOR_SIZE / 2;
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${String(CURSOR_SIZE)}' height='${String(CURSOR_SIZE)}'><circle cx='${String(r)}' cy='${String(r)}' r='${String(r)}' fill='#111111'/></svg>`;
-  return `url("data:image/svg+xml,${encodeURIComponent(svg)}") ${String(r)} ${String(r)}`;
+  const center = CURSOR_SIZE / 2;
+  const radius = center - CURSOR_STROKE / 2;
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${String(CURSOR_SIZE)}' height='${String(CURSOR_SIZE)}'><circle cx='${String(center)}' cy='${String(center)}' r='${String(radius)}' fill='#111111' stroke='#fff' stroke-width='${String(CURSOR_STROKE)}'/></svg>`;
+  return `url("data:image/svg+xml,${encodeURIComponent(svg)}") ${String(center)} ${String(center)}`;
 };
 
 export const GlobalStyle = createGlobalStyle`
-  /* Mouse users get one black dot cursor everywhere, including over links and buttons. */
+  /* Use the same cursor over links and buttons. */
   @media (hover: hover) and (pointer: fine) {
     html {
       cursor: ${circleCursor()}, auto;

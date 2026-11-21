@@ -27,7 +27,7 @@ test('header shows the hand-lettered logo', async ({ page }) => {
   await expect(logo).toHaveAttribute('src', /logo\.png$/);
 });
 
-test('mouse cursor is one black dot, the same size over links', async ({ page, isMobile }) => {
+test('mouse cursor is a black dot with a white outline', async ({ page, isMobile }) => {
   test.skip(isMobile, 'touch screens have no cursor');
   await page.goto('./');
   const cursorOf = (selector: string) =>
@@ -41,7 +41,8 @@ test('mouse cursor is one black dot, the same size over links', async ({ page, i
     cursorOf('header button'),
   ]);
   expect(base).toContain("fill='#111111'");
-  expect(base).not.toContain('stroke');
+  expect(base).toContain("stroke='#fff'");
+  expect(base).toContain("stroke-width='2'");
   expect(base).toContain("width='22'");
   expect(link.split(')')[0]).toBe(base.split(')')[0]);
   expect(button.split(')')[0]).toBe(base.split(')')[0]);
