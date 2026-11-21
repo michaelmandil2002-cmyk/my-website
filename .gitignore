@@ -11,3 +11,7 @@ npm-debug.log*
 
 # Local Claude skills (not committed)
 .claude/skills/
+
+# Test output
+playwright-report
+test-results
