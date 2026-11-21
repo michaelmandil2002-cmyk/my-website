@@ -4,6 +4,7 @@ import { ResponsiveImage } from '@/components/ui/ResponsiveImage/ResponsiveImage
 import {
   Actions,
   Eyebrow,
+  Greeting,
   HeroCopy,
   HeroGrid,
   Lead,
@@ -21,6 +22,7 @@ export function Hero() {
       <Container>
         <HeroGrid>
           <HeroCopy>
+            <Greeting>Hello World</Greeting>
             <Eyebrow>Welcome</Eyebrow>
             <Title id="hero-title">Build something fast, accessible and beautiful.</Title>
             <Lead>

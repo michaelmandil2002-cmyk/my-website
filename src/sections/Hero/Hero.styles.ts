@@ -26,6 +26,11 @@ export const HeroCopy = styled.div`
   gap: ${({ theme }) => theme.space.lg};
 `;
 
+export const Greeting = styled.p`
+  font-size: ${({ theme }) => theme.fontSizes['2xl']};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+`;
+
 export const Eyebrow = styled.p`
   color: ${({ theme }) => theme.colors.primary};
   font-size: ${({ theme }) => theme.fontSizes.sm};

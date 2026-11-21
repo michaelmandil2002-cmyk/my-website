@@ -8,3 +8,6 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 npm-debug.log*
+
+# Local Claude skill (not committed)
+.claude/skills/project-workflow/
