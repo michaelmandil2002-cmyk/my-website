@@ -23,8 +23,10 @@ export const test = base.extend<SiteFixtures>({
       });
       page.on('requestfailed', (request) => {
         const reason = request.failure()?.errorText ?? '';
-        // Aborts are normal: lazy videos and images are cancelled when they leave the viewport.
-        if (request.url().startsWith(origin) && !reason.includes('ABORTED')) {
+        // Cancelled loads are normal: lazy videos and images are dropped when the page changes.
+        // Chromium reports "net::ERR_ABORTED", WebKit (Safari) "Load request cancelled".
+        const cancelled = /ABORTED|cancel/i.test(reason);
+        if (request.url().startsWith(origin) && !cancelled) {
           failedRequests.push(`${reason} ${request.url()}`);
         }
       });
