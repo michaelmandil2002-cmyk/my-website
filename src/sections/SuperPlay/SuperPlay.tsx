@@ -8,13 +8,15 @@ import { ResponsiveImage } from '@/components/ui/ResponsiveImage/ResponsiveImage
 import { asset } from '@/constants/site';
 import { SUPERPLAY_PREVIEWS } from '@/data/previews';
 import { SUPERPLAY_POSTS } from '@/data/superplay';
+import { EventGrid } from '@/sections/SuperPlay/EventGrid/EventGrid';
 import {
   Grid,
+  Group,
   More,
-  Previews,
   StyledSuperPlay,
   Tile,
   TileButton,
+  Subtitle,
   Title,
 } from '@/sections/SuperPlay/SuperPlay.styles';
 import { imageProps } from '@/utils/media';
@@ -32,61 +34,61 @@ export function SuperPlay() {
     <StyledSuperPlay id="superplay" aria-labelledby="superplay-title">
       <Container>
         <Title id="superplay-title">Disney Solitaire</Title>
-      </Container>
-
-      <Previews videos={SUPERPLAY_PREVIEWS} />
-
-      <Container>
-        <Grid aria-label="Disney Solitaire posts">
-          {posts.map((tile) =>
-            tile.kind === 'video' ? (
-              <Tile key={tile.video.src}>
-                <LazyVideo
-                  sources={[{ src: asset(tile.video.src), type: 'video/mp4' }]}
-                  poster={asset(tile.video.poster)}
-                  width={tile.video.width}
-                  height={tile.video.height}
-                  ambient
-                />
-              </Tile>
-            ) : (
-              <Tile key={tile.image.src}>
-                <TileButton
-                  type="button"
-                  aria-label={`Enlarge ${POST_ALT}`}
-                  onClick={() => {
-                    setZoomed({
-                      src: asset(tile.image.src),
-                      alt: POST_ALT,
-                      width: tile.image.width,
-                      height: tile.image.height,
-                    });
-                  }}
-                >
-                  <ResponsiveImage
-                    {...imageProps(tile.image)}
-                    alt={POST_ALT}
-                    sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+        <Group aria-labelledby="superplay-social">
+          <Subtitle id="superplay-social">Social</Subtitle>
+          <Grid aria-label="Disney Solitaire posts">
+            {posts.map((tile) =>
+              tile.kind === 'video' ? (
+                <Tile key={tile.video.src}>
+                  <LazyVideo
+                    sources={[{ src: asset(tile.video.src), type: 'video/mp4' }]}
+                    poster={asset(tile.video.poster)}
+                    width={tile.video.width}
+                    height={tile.video.height}
+                    ambient
                   />
-                </TileButton>
-              </Tile>
-            ),
-          )}
-        </Grid>
+                </Tile>
+              ) : (
+                <Tile key={tile.image.src}>
+                  <TileButton
+                    type="button"
+                    aria-label={`Enlarge ${POST_ALT}`}
+                    onClick={() => {
+                      setZoomed({
+                        src: asset(tile.image.src),
+                        alt: POST_ALT,
+                        width: tile.image.width,
+                        height: tile.image.height,
+                      });
+                    }}
+                  >
+                    <ResponsiveImage
+                      {...imageProps(tile.image)}
+                      alt={POST_ALT}
+                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+                    />
+                  </TileButton>
+                </Tile>
+              ),
+            )}
+          </Grid>
 
-        {SUPERPLAY_POSTS.length > INITIAL_POSTS && (
-          <More>
-            <Button
-              variant="secondary"
-              aria-expanded={showAll}
-              onClick={() => {
-                setShowAll((prev) => !prev);
-              }}
-            >
-              {showAll ? 'Show less' : `Show all ${String(SUPERPLAY_POSTS.length)}`}
-            </Button>
-          </More>
-        )}
+          {SUPERPLAY_POSTS.length > INITIAL_POSTS && (
+            <More>
+              <Button
+                variant="secondary"
+                aria-expanded={showAll}
+                onClick={() => {
+                  setShowAll((prev) => !prev);
+                }}
+              >
+                {showAll ? 'Show less' : `Show all ${String(SUPERPLAY_POSTS.length)}`}
+              </Button>
+            </More>
+          )}
+        </Group>
+
+        <EventGrid title="In-Game" events={SUPERPLAY_PREVIEWS} />
       </Container>
 
       <Lightbox

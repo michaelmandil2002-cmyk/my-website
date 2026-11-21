@@ -35,7 +35,7 @@ jobs:
       - run: npm run test:unit
       # Builds exactly what GitHub Pages will serve (same base path).
       - run: npm run build
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install --with-deps chromium webkit
       - run: npx playwright test
       - if: failure()
         uses: actions/upload-artifact@v4

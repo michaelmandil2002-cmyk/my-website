@@ -43,6 +43,16 @@ function LazyVideoComponent({
   const reducedMotion = usePrefersReducedMotion();
   const shouldAutoplay = ambient && !reducedMotion && !paused;
 
+  // React sets `muted` only as a property; iOS Safari also checks the attribute before it
+  // allows inline autoplay, so mirror it onto the element (and keep it after reloads).
+  useEffect(() => {
+    const video = ref.current;
+    if (!video || !ambient) return;
+    video.muted = true;
+    video.defaultMuted = true;
+    video.setAttribute('muted', '');
+  }, [ambient, ref]);
+
   useEffect(() => {
     const video = ref.current;
     if (!video || !ambient) return;

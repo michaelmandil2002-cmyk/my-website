@@ -19,9 +19,21 @@ test('serves the built site, not the source files', async ({ request }) => {
   expect((await request.get(script ?? '')).ok(), 'JS bundle did not load').toBe(true);
 });
 
+test('uses the custom favicon', async ({ page, request }) => {
+  await page.goto('./');
+  const href = await page.locator('link[rel="icon"]').getAttribute('href');
+  expect(href, 'favicon link').toMatch(/favicon\.ico$/);
+  const res = await request.get(href ?? '');
+  expect(res.ok(), 'favicon.ico loads').toBe(true);
+  expect((await res.body()).subarray(0, 4).toString('hex'), 'is an .ico file').toBe('00000100');
+});
+
 test('home page renders every section with working media', async ({ page }) => {
   await page.goto('./');
   await expect(page.getByRole('heading', { level: 1, name: 'Hi, I’m Michael!' })).toBeVisible();
+  const cat = page.getByRole('img', { name: 'Hand-drawn illustration of a cat' });
+  await expect(cat).toBeVisible();
+  expect(await cat.evaluate((img) => (img as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   for (const name of [/Selected\s*Work/, /Let’s make/]) {
     await expect(page.getByRole('heading', { level: 2, name })).toBeVisible();
   }
@@ -30,21 +42,50 @@ test('home page renders every section with working media', async ({ page }) => {
   await expectNoHorizontalScroll(page);
 });
 
-test('Disney Solitaire previews scroll, play and can be paused', async ({ page }) => {
+test('Disney Solitaire event videos show in a grid, play and pause', async ({ page }) => {
   await page.goto('./#superplay');
-  const videos = page.locator('#superplay [aria-hidden="true"] video');
-  await expect(videos).toHaveCount(SUPERPLAY_PREVIEWS.length * 2);
   await expect(
     page.locator('section[aria-labelledby="hero-title"] video'),
     'hero has no videos',
   ).toHaveCount(0);
+  const grid = page.getByRole('list', { name: 'In-game event videos' });
+  // Videos only play while on screen, so bring the In-Game grid into view first.
+  await grid.scrollIntoViewIfNeeded();
+  await expect(grid.getByRole('listitem')).toHaveCount(SUPERPLAY_PREVIEWS.length);
+  await expect(grid.locator('p, strong'), 'videos have no titles or dates').toHaveCount(0);
+  const videos = grid.locator('video');
   const playing = () =>
     videos.evaluateAll((nodes) => nodes.filter((v) => !(v as HTMLVideoElement).paused).length);
-  await expect.poll(playing, { message: 'no preview is playing' }).toBeGreaterThan(0);
-  await page.getByRole('button', { name: /Pause previews/ }).click();
-  await expect.poll(playing, { message: 'previews kept playing after pause' }).toBe(0);
-  await page.getByRole('button', { name: /Play previews/ }).click();
+  await expect.poll(playing, { message: 'no event video is playing' }).toBeGreaterThan(0);
+  await page.getByRole('button', { name: /Pause videos/ }).click();
+  await expect.poll(playing, { message: 'videos kept playing after pause' }).toBe(0);
+  await page.getByRole('button', { name: /Play videos/ }).click();
   await expect.poll(playing).toBeGreaterThan(0);
+});
+
+test('images and videos have square corners', async ({ page }) => {
+  for (const path of ['./', './#/work/facewoof']) {
+    await page.goto(path);
+    await scrollToBottom(page);
+    // A rounded corner shows up either on the media itself or on a clipping ancestor.
+    const rounded = await page.evaluate(() =>
+      [...document.querySelectorAll('main img, main video')].flatMap((el) => {
+        const hits: string[] = [];
+        let node: Element | null = el;
+        for (let depth = 0; node && depth < 4; depth += 1, node = node.parentElement) {
+          const style = getComputedStyle(node);
+          const clips = node === el || style.overflow !== 'visible';
+          if (clips && style.borderTopLeftRadius !== '0px') {
+            hits.push(
+              `${(el as HTMLImageElement).currentSrc || el.tagName} (${node.tagName} ${style.borderTopLeftRadius})`,
+            );
+          }
+        }
+        return hits;
+      }),
+    );
+    expect(rounded, `rounded media on ${path}`).toEqual([]);
+  }
 });
 
 test('every project page opens', async ({ page }) => {
@@ -111,6 +152,20 @@ test('removed content stays off the site', async ({ page }) => {
   }
 });
 
+test('Disney Solitaire shows Social first, then In-Game', async ({ page }) => {
+  await page.goto('./#superplay');
+  await expect(page.locator('#superplay h3')).toHaveText(['Social', 'In-Game']);
+});
+
+test('in-game videos are evenly spaced', async ({ page }) => {
+  await page.goto('./#superplay');
+  const gaps = await page.getByRole('list', { name: 'In-game event videos' }).evaluate((ul) => {
+    const style = getComputedStyle(ul);
+    return [style.rowGap, style.columnGap];
+  });
+  expect(gaps[0], 'row gap equals column gap').toBe(gaps[1]);
+});
+
 test('Super Play posts show under a "Disney Solitaire" title, enlarge and expand', async ({
   page,
 }) => {
@@ -126,7 +181,10 @@ test('Super Play posts show under a "Disney Solitaire" title, enlarge and expand
   await expect(dialog).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(dialog).toBeHidden();
-  await section.getByRole('button', { name: /^Show all/ }).click();
+  // "Show all" only appears when there are more posts than the first view shows (12).
+  const showAll = section.getByRole('button', { name: /^Show all/ });
+  if (SUPERPLAY_POSTS.length > 12) await showAll.click();
+  else await expect(showAll).toHaveCount(0);
   await expect(
     section.getByRole('list', { name: 'Disney Solitaire posts' }).getByRole('listitem'),
   ).toHaveCount(SUPERPLAY_POSTS.length);

@@ -11,6 +11,34 @@ export const StyledHero = styled.section`
   }
 `;
 
+/** Phones: text, then the drawing below. Desktop: text left, drawing right. */
+export const Layout = styled.div`
+  display: grid;
+  gap: ${({ theme }) => theme.space.xl};
+  align-items: center;
+
+  ${media.lg} {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: ${({ theme }) => theme.space['2xl']};
+  }
+`;
+
+export const Text = styled.div`
+  min-width: 0;
+`;
+
+export const Art = styled.img`
+  justify-self: center;
+  width: 100%;
+  max-width: 18rem;
+  height: auto;
+
+  ${media.lg} {
+    justify-self: end;
+    max-width: 24rem;
+  }
+`;
+
 export const Name = styled.h1`
   margin-block: ${({ theme }) => theme.space.sm} ${({ theme }) => theme.space.xl};
   font-size: ${({ theme }) => theme.fontSizes.display};

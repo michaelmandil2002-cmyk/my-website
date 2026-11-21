@@ -14,7 +14,7 @@ async function check() {
   if (html.includes('/src/main.tsx') || html.includes('%BASE_URL%')) {
     return 'GitHub Pages is serving the raw source files, not the build. In the repo go to Settings → Pages → Build and deployment → Source and choose "GitHub Actions", then re-run the deploy workflow.';
   }
-  const assets = [...html.matchAll(/(?:src|href)="([^"]+\.(?:js|css|svg))"/g)].map((m) => m[1]);
+  const assets = [...html.matchAll(/(?:src|href)="([^"]+\.(?:js|css|svg|ico))"/g)].map((m) => m[1]);
   if (!assets.some((a) => a.endsWith('.js'))) return 'no JS bundle referenced in index.html';
   for (const asset of [
     ...assets,

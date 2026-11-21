@@ -1,4 +1,4 @@
-// Generated from the "updated mtx" folder (three recordings removed on request): 10-second loops scrolling in the Disney Solitaire section.
+// Live-event screens from Disney Solitaire ("updated mtx" folder), 10-second clips.
 import type { MediaVideo } from '@/data/types';
 
 export const SUPERPLAY_PREVIEWS: readonly MediaVideo[] = [

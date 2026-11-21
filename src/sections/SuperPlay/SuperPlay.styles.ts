@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { VideoStrip } from '@/components/ui/VideoStrip/VideoStrip';
-
 import { media } from '@/styles/media';
 
 export const StyledSuperPlay = styled.section`
@@ -22,8 +20,16 @@ export const Title = styled.h2`
   letter-spacing: ${({ theme }) => theme.letterSpacings.tight};
 `;
 
-export const Previews = styled(VideoStrip)`
-  margin-bottom: ${({ theme }) => theme.space.xl};
+/** One sub-part of the section (Social, In-Game), with even space after it. */
+export const Group = styled.section`
+  margin-bottom: ${({ theme }) => theme.space['3xl']};
+`;
+
+export const Subtitle = styled.h3`
+  margin-bottom: ${({ theme }) => theme.space.md};
+  font-size: ${({ theme }) => theme.fontSizes['2xl']};
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  letter-spacing: ${({ theme }) => theme.letterSpacings.snug};
 `;
 
 export const Grid = styled.ul`
@@ -45,12 +51,6 @@ export const Grid = styled.ul`
 
 export const Tile = styled.li`
   overflow: hidden;
-  border-radius: ${({ theme }) => theme.radii.md};
-
-  ${media.md} {
-    border-radius: ${({ theme }) => theme.radii.lg};
-  }
-
   img,
   video {
     width: 100%;

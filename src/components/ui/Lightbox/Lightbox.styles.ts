@@ -33,7 +33,6 @@ export const Figure = styled.figure`
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    border-radius: ${({ theme }) => theme.radii.md};
   }
 `;
 

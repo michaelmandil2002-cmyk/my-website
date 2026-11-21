@@ -121,42 +121,6 @@ export const SUPERPLAY_POSTS: readonly SuperPlayTile[] = [
     },
   },
   {
-    kind: 'image',
-    image: {
-      src: 'work/superplay/09.jpg',
-      width: 1080,
-      height: 1080,
-      small: {
-        src: 'work/superplay/09-540.jpg',
-        width: 540,
-      },
-    },
-  },
-  {
-    kind: 'image',
-    image: {
-      src: 'work/superplay/10.jpg',
-      width: 1080,
-      height: 1080,
-      small: {
-        src: 'work/superplay/10-540.jpg',
-        width: 540,
-      },
-    },
-  },
-  {
-    kind: 'image',
-    image: {
-      src: 'work/superplay/11.jpg',
-      width: 1080,
-      height: 1080,
-      small: {
-        src: 'work/superplay/11-540.jpg',
-        width: 540,
-      },
-    },
-  },
-  {
     kind: 'video',
     video: {
       src: 'work/superplay/video/ad-03.mp4',
@@ -166,115 +130,10 @@ export const SUPERPLAY_POSTS: readonly SuperPlayTile[] = [
     },
   },
   {
-    kind: 'image',
-    image: {
-      src: 'work/superplay/12.jpg',
-      width: 1080,
-      height: 1080,
-      small: {
-        src: 'work/superplay/12-540.jpg',
-        width: 540,
-      },
-    },
-  },
-  {
-    kind: 'image',
-    image: {
-      src: 'work/superplay/13.jpg',
-      width: 1080,
-      height: 1080,
-      small: {
-        src: 'work/superplay/13-540.jpg',
-        width: 540,
-      },
-    },
-  },
-  {
-    kind: 'image',
-    image: {
-      src: 'work/superplay/14.jpg',
-      width: 1080,
-      height: 1080,
-      small: {
-        src: 'work/superplay/14-540.jpg',
-        width: 540,
-      },
-    },
-  },
-  {
-    kind: 'image',
-    image: {
-      src: 'work/superplay/15.jpg',
-      width: 1080,
-      height: 1080,
-      small: {
-        src: 'work/superplay/15-540.jpg',
-        width: 540,
-      },
-    },
-  },
-  {
     kind: 'video',
     video: {
       src: 'work/superplay/video/ad-04.mp4',
       poster: 'work/superplay/poster/ad-04.jpg',
-      width: 720,
-      height: 720,
-    },
-  },
-  {
-    kind: 'image',
-    image: {
-      src: 'work/superplay/16.jpg',
-      width: 1080,
-      height: 1080,
-      small: {
-        src: 'work/superplay/16-540.jpg',
-        width: 540,
-      },
-    },
-  },
-  {
-    kind: 'image',
-    image: {
-      src: 'work/superplay/17.jpg',
-      width: 1080,
-      height: 1080,
-      small: {
-        src: 'work/superplay/17-540.jpg',
-        width: 540,
-      },
-    },
-  },
-  {
-    kind: 'image',
-    image: {
-      src: 'work/superplay/18.jpg',
-      width: 1080,
-      height: 1080,
-      small: {
-        src: 'work/superplay/18-540.jpg',
-        width: 540,
-      },
-    },
-  },
-  {
-    kind: 'image',
-    image: {
-      src: 'work/superplay/19.jpg',
-      width: 1080,
-      height: 1080,
-      small: {
-        src: 'work/superplay/19-540.jpg',
-        width: 540,
-      },
-    },
-  },
-  {
-    kind: 'video',
-    video: {
-      src: 'work/superplay/video/ad-05.mp4',
-      poster: 'work/superplay/poster/ad-05.jpg',
       width: 720,
       height: 720,
     },

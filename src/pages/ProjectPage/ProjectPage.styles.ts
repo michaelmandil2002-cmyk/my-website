@@ -76,7 +76,6 @@ export const Body = styled.div`
 
 export const Figure = styled.figure`
   overflow: hidden;
-  border-radius: ${({ theme }) => theme.radii.lg};
 `;
 
 export const Next = styled.a`

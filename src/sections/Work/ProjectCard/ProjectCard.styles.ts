@@ -13,7 +13,6 @@ export const CardMedia = styled.div`
   /* Same crop as the thumbnails on the previous Adobe Portfolio site. */
   aspect-ratio: 202 / 158;
   overflow: hidden;
-  border-radius: ${({ theme }) => theme.radii.lg};
   background-color: ${({ theme }) => theme.colors.surface};
 
   picture,

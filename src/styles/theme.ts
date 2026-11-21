@@ -8,24 +8,24 @@ const breakpoints = {
 export type Breakpoint = keyof typeof breakpoints;
 
 export const theme = {
-  /** Cream, pink, cobalt and purple from "The Hecate Kin" reference; magenta deepened for readable buttons. */
+  /** Black, white and warm gray. */
   colors: {
-    primary: '#c8207a',
-    primaryHover: '#a81866',
+    primary: '#111111',
+    primaryHover: '#333333',
     onPrimary: '#ffffff',
-    text: '#360678',
-    textMuted: '#5e4a86',
-    /** Large titles: the reference's cobalt blue. */
-    heading: '#2442cc',
-    background: '#fff6e7',
-    backgroundTranslucent: 'rgb(255 246 231 / 0.9)',
+    text: '#111111',
+    textMuted: '#5f5f5f',
+    /** Large titles. */
+    heading: '#111111',
+    background: '#ffffff',
+    backgroundTranslucent: 'rgb(255 255 255 / 0.92)',
     /** Image and video placeholders while loading. */
-    surface: '#f6ead6',
-    /** Bright pale pink behind the Disney Solitaire and Contact sections. */
-    band: '#ffe6eb',
-    border: '#f2b4c0',
-    focus: '#2442cc',
-    overlay: 'rgb(54 6 120 / 0.94)',
+    surface: '#f4f3f0',
+    /** Light gray behind the Disney Solitaire section. */
+    band: '#f4f3f0',
+    border: '#e4e2dd',
+    focus: '#e04a12',
+    overlay: 'rgb(17 17 17 / 0.92)',
   },
   fonts: {
     body: "'Google Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
