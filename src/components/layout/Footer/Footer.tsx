@@ -1,18 +1,29 @@
-import { FooterInner, FooterLink, StyledFooter } from '@/components/layout/Footer/Footer.styles';
+import { FooterInner, FooterLinks, StyledFooter } from '@/components/layout/Footer/Footer.styles';
 import { Container } from '@/components/ui/Container/Container';
-import { SITE } from '@/constants/site';
+import { SITE, SOCIAL_LINKS } from '@/constants/site';
 
 const YEAR = new Date().getFullYear();
 
 export function Footer() {
   return (
-    <StyledFooter id="contact">
+    <StyledFooter>
       <Container>
         <FooterInner>
           <p>
-            © {YEAR} {SITE.name}. All rights reserved.
+            © {YEAR} {SITE.name}
           </p>
-          <FooterLink href="mailto:hello@example.com">hello@example.com</FooterLink>
+          <FooterLinks>
+            {SOCIAL_LINKS.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} target="_blank" rel="noreferrer">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a href="#top">Back to top ↑</a>
+            </li>
+          </FooterLinks>
         </FooterInner>
       </Container>
     </StyledFooter>

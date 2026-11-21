@@ -19,11 +19,13 @@ const variants = {
   `,
   secondary: css`
     color: ${({ theme }) => theme.colors.text};
-    background-color: ${({ theme }) => theme.colors.background};
-    border-color: ${({ theme }) => theme.colors.border};
+    background-color: transparent;
+    border-color: currentColor;
 
     &:hover {
-      background-color: ${({ theme }) => theme.colors.surface};
+      color: ${({ theme }) => theme.colors.onPrimary};
+      background-color: ${({ theme }) => theme.colors.primary};
+      border-color: ${({ theme }) => theme.colors.primary};
     }
   `,
   ghost: css`
@@ -59,7 +61,9 @@ export const StyledButton = styled.button<StyledButtonProps>`
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   text-decoration: none;
   cursor: pointer;
+  white-space: nowrap;
   transition:
+    color ${({ theme }) => theme.transitions.fast},
     background-color ${({ theme }) => theme.transitions.fast},
     border-color ${({ theme }) => theme.transitions.fast};
 

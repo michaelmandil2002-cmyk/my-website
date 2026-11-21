@@ -31,6 +31,12 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.text};
     background-color: ${({ theme }) => theme.colors.background};
     -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    color: ${({ theme }) => theme.colors.onPrimary};
+    background-color: ${({ theme }) => theme.colors.text};
   }
 
   img,

@@ -1,57 +1,57 @@
 import { Button } from '@/components/ui/Button/Button';
 import { Container } from '@/components/ui/Container/Container';
 import { ResponsiveImage } from '@/components/ui/ResponsiveImage/ResponsiveImage';
+import { SITE } from '@/constants/site';
+import { SUPERPLAY_POSTS } from '@/data/superplay';
+import type { MediaImage } from '@/data/types';
 import {
   Actions,
-  Eyebrow,
-  Greeting,
-  HeroCopy,
-  HeroGrid,
+  Bottom,
+  Kicker,
   Lead,
-  Media,
+  Name,
+  Strip,
   StyledHero,
-  Title,
+  Track,
 } from '@/sections/Hero/Hero.styles';
+import { imageProps } from '@/utils/media';
 
-// Files in /public are served from the configured base path (GitHub Pages safe).
-const HERO_IMAGE = `${import.meta.env.BASE_URL}images/hero.svg`;
+const STRIP: readonly MediaImage[] = SUPERPLAY_POSTS.flatMap((tile) =>
+  tile.kind === 'image' && tile.image.width === tile.image.height ? [tile.image] : [],
+).slice(0, 10);
 
 export function Hero() {
   return (
     <StyledHero aria-labelledby="hero-title">
       <Container>
-        <HeroGrid>
-          <HeroCopy>
-            <Greeting>Hello World</Greeting>
-            <Eyebrow>Welcome</Eyebrow>
-            <Title id="hero-title">Build something fast, accessible and beautiful.</Title>
-            <Lead>
-              A minimal, production-ready starter with React, TypeScript, Vite and styled-components
-              — tuned for performance and Core Web Vitals.
-            </Lead>
-            <Actions>
-              <Button href="#features" size="lg">
-                Explore features
-              </Button>
-              <Button href="#contact" variant="secondary" size="lg">
-                Get in touch
-              </Button>
-            </Actions>
-          </HeroCopy>
-
-          <Media>
-            {/* LCP image: eager + high priority. Add AVIF/WebP `sources` for raster images. */}
-            <ResponsiveImage
-              src={HERO_IMAGE}
-              alt="Abstract illustration of a website layout"
-              width={640}
-              height={480}
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              priority
-            />
-          </Media>
-        </HeroGrid>
+        <Kicker>{SITE.role} · Tattoo Artist</Kicker>
+        <Name id="hero-title">{SITE.name}</Name>
+        <Bottom>
+          <Lead>
+            Hi, I’m Michael! I design <em>playful</em> visuals for games, brands and screens, and
+            right now I’m making Disney Solitaire art at Super Play.
+          </Lead>
+          <Actions>
+            <Button href="#superplay" size="lg">
+              See my work ↓
+            </Button>
+            <Button href="#contact" variant="secondary" size="lg">
+              Get in touch ↗
+            </Button>
+          </Actions>
+        </Bottom>
       </Container>
+
+      {/* Decorative: the same posts appear (with alt text) in the Super Play section. */}
+      <Strip aria-hidden="true">
+        <Track>
+          {[...STRIP, ...STRIP].map((image, index) => (
+            <li key={`${image.src}-${String(index)}`}>
+              <ResponsiveImage {...imageProps(image)} alt="" sizes="15rem" priority={index < 4} />
+            </li>
+          ))}
+        </Track>
+      </Strip>
     </StyledHero>
   );
 }

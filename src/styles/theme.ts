@@ -9,35 +9,40 @@ export type Breakpoint = keyof typeof breakpoints;
 
 export const theme = {
   colors: {
-    primary: '#4f46e5',
-    primaryHover: '#4338ca',
+    primary: '#111111',
+    primaryHover: '#333333',
     onPrimary: '#ffffff',
-    text: '#0f172a',
-    textMuted: '#475569',
+    text: '#111111',
+    textMuted: '#5f5f5f',
     background: '#ffffff',
-    surface: '#f8fafc',
-    border: '#e2e8f0',
-    focus: '#f59e0b',
+    surface: '#f4f3f0',
+    border: '#e4e2dd',
+    focus: '#ff5a1f',
   },
   fonts: {
-    body: "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    body: "'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    serif: "'Instrument Serif', 'Times New Roman', Georgia, serif",
     mono: "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace",
   },
   fontSizes: {
+    xs: '0.8125rem',
     sm: '0.875rem',
     base: '1rem',
     lg: '1.125rem',
     xl: '1.25rem',
     '2xl': '1.5rem',
-    display: 'clamp(2.25rem, 5vw + 1rem, 3.75rem)',
+    '3xl': 'clamp(1.75rem, 3vw + 1rem, 2.75rem)',
+    section: 'clamp(2.5rem, 6vw + 1rem, 5rem)',
+    display: 'clamp(3.5rem, 15vw, 13rem)',
   },
   fontWeights: {
     regular: 400,
     medium: 500,
-    bold: 700,
+    bold: 600,
   },
   lineHeights: {
-    tight: 1.15,
+    none: 0.9,
+    tight: 1.1,
     base: 1.6,
   },
   space: {
@@ -48,6 +53,7 @@ export const theme = {
     xl: '2rem',
     '2xl': '3rem',
     '3xl': '5rem',
+    '4xl': '8rem',
   },
   radii: {
     sm: '0.375rem',
@@ -56,11 +62,12 @@ export const theme = {
     full: '9999px',
   },
   shadows: {
-    sm: '0 1px 2px rgb(15 23 42 / 0.06)',
-    md: '0 4px 16px rgb(15 23 42 / 0.08)',
+    sm: '0 1px 2px rgb(17 17 17 / 0.06)',
+    md: '0 8px 24px rgb(17 17 17 / 0.08)',
   },
   layout: {
-    maxWidth: '72rem',
+    maxWidth: '84rem',
+    readingWidth: '42rem',
     headerHeight: '4rem',
   },
   zIndices: {
@@ -69,6 +76,7 @@ export const theme = {
   },
   transitions: {
     fast: '150ms ease',
+    base: '300ms ease',
   },
   breakpoints,
 } as const;

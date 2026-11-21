@@ -1,63 +1,87 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { media } from '@/styles/media';
 
 export const StyledHero = styled.section`
-  padding-block: ${({ theme }) => theme.space['2xl']};
+  padding-top: ${({ theme }) => theme.space['2xl']};
+  padding-bottom: ${({ theme }) => theme.space['3xl']};
 
   ${media.lg} {
-    padding-block: ${({ theme }) => theme.space['3xl']};
+    padding-top: ${({ theme }) => theme.space['3xl']};
   }
 `;
 
-export const HeroGrid = styled.div`
-  display: grid;
-  gap: ${({ theme }) => theme.space['2xl']};
-  align-items: center;
-
-  ${media.lg} {
-    grid-template-columns: 1.1fr 1fr;
-  }
+export const Kicker = styled.p`
+  font-size: ${({ theme }) => theme.fontSizes.sm};
+  color: ${({ theme }) => theme.colors.textMuted};
 `;
 
-export const HeroCopy = styled.div`
+export const Name = styled.h1`
+  margin-block: ${({ theme }) => theme.space.sm} ${({ theme }) => theme.space.xl};
+  font-family: ${({ theme }) => theme.fonts.serif};
+  font-size: ${({ theme }) => theme.fontSizes.display};
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
+  line-height: ${({ theme }) => theme.lineHeights.none};
+  letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+`;
+
+export const Bottom = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.space.lg};
-`;
 
-export const Greeting = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes['2xl']};
-  font-weight: ${({ theme }) => theme.fontWeights.bold};
-`;
-
-export const Eyebrow = styled.p`
-  color: ${({ theme }) => theme.colors.primary};
-  font-size: ${({ theme }) => theme.fontSizes.sm};
-  font-weight: ${({ theme }) => theme.fontWeights.bold};
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-`;
-
-export const Title = styled.h1`
-  font-size: ${({ theme }) => theme.fontSizes.display};
-  letter-spacing: -0.02em;
+  ${media.lg} {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
 `;
 
 export const Lead = styled.p`
-  max-width: 36rem;
-  color: ${({ theme }) => theme.colors.textMuted};
+  max-width: 34rem;
   font-size: ${({ theme }) => theme.fontSizes.lg};
+
+  em {
+    font-family: ${({ theme }) => theme.fonts.serif};
+    font-size: 1.2em;
+  }
 `;
 
 export const Actions = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: ${({ theme }) => theme.space.md};
+  gap: ${({ theme }) => theme.space.sm};
 `;
 
-export const Media = styled.div`
+const scroll = keyframes`
+  to {
+    transform: translateX(-50%);
+  }
+`;
+
+export const Strip = styled.div`
+  margin-top: ${({ theme }) => theme.space['2xl']};
   overflow: hidden;
-  border-radius: ${({ theme }) => theme.radii.lg};
-  box-shadow: ${({ theme }) => theme.shadows.md};
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+`;
+
+export const Track = styled.ul`
+  display: flex;
+  gap: ${({ theme }) => theme.space.md};
+  width: max-content;
+  padding: 0;
+  list-style: none;
+  animation: ${scroll} 60s linear infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+
+  li {
+    flex: none;
+    width: clamp(9rem, 30vw, 15rem);
+    overflow: hidden;
+    border-radius: ${({ theme }) => theme.radii.lg};
+  }
 `;

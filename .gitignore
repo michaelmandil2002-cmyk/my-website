@@ -9,5 +9,5 @@ dist-ssr
 .idea
 npm-debug.log*
 
-# Local Claude skill (not committed)
-.claude/skills/project-workflow/
+# Local Claude skills (not committed)
+.claude/skills/

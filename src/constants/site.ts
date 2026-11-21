@@ -1,6 +1,7 @@
 export const SITE = {
-  name: 'My Website',
-  tagline: 'A fast, accessible starting point.',
+  name: 'Michael Mandil',
+  role: 'Graphic Designer & Illustrator',
+  email: 'michaelmandil2002@gmail.com',
 } as const;
 
 export interface NavLink {
@@ -9,7 +10,16 @@ export interface NavLink {
 }
 
 export const NAV_LINKS: readonly NavLink[] = [
-  { label: 'Home', href: '#top' },
-  { label: 'Features', href: '#features' },
+  { label: 'Super Play', href: '#superplay' },
+  { label: 'Work', href: '#work' },
+  { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ];
+
+export const SOCIAL_LINKS: readonly NavLink[] = [
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/michael-mandil/' },
+  { label: 'Instagram', href: 'https://www.instagram.com/mink.tatts' },
+];
+
+/** Builds a URL for a file in /public that works under the GitHub Pages base path. */
+export const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;

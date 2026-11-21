@@ -6,8 +6,8 @@ export const StyledHeader = styled.header`
   position: sticky;
   top: 0;
   z-index: ${({ theme }) => theme.zIndices.header};
-  background-color: rgb(255 255 255 / 0.9);
-  backdrop-filter: saturate(180%) blur(8px);
+  background-color: rgb(255 255 255 / 0.92);
+  backdrop-filter: saturate(180%) blur(10px);
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 `;
 
@@ -20,8 +20,13 @@ export const Bar = styled.div`
 `;
 
 export const Brand = styled.a`
-  font-size: ${({ theme }) => theme.fontSizes.lg};
-  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-family: ${({ theme }) => theme.fonts.serif};
+  font-size: ${({ theme }) => theme.fontSizes['2xl']};
+  line-height: 1;
+  letter-spacing: -0.01em;
   text-decoration: none;
 `;
 
@@ -78,10 +83,10 @@ export const NavList = styled.ul`
 `;
 
 export const NavItemLink = styled.a`
-  display: block;
-  padding: ${({ theme }) => theme.space.sm} 0;
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
   color: ${({ theme }) => theme.colors.textMuted};
-  font-weight: ${({ theme }) => theme.fontWeights.medium};
   text-decoration: none;
   transition: color ${({ theme }) => theme.transitions.fast};
 
