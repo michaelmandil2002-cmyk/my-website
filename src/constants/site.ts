@@ -1,6 +1,7 @@
 export const SITE = {
   name: 'Michael Mandil',
-  role: 'Graphic Designer & Illustrator',
+  /** The home page title, also shown in link previews (kept in sync with index.html). */
+  title: 'Michael - Graphic Designer',
   email: 'michaelmandil2002@gmail.com',
 } as const;
 

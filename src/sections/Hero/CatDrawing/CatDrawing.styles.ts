@@ -7,7 +7,7 @@ import { CAT_STROKES } from '@/data/catDrawing';
  * after stroke at one steady speed (body first, eyes and nose last), and the drawing stays.
  * No fades: the marker strokes cover every pixel of the drawing.
  */
-const DURATION = 4.5;
+const DURATION = 3.8;
 const DELAY = 0.3;
 const PAUSE = DURATION * 0.012;
 

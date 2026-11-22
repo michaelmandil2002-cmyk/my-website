@@ -18,7 +18,7 @@ export function App() {
       window.scrollTo({ top: 0, behavior: 'instant' });
       return;
     }
-    document.title = `${SITE.name} — ${SITE.role}`;
+    document.title = SITE.title;
     // Coming back from a project page: jump to the requested section once it has rendered.
     if (route.anchor) document.getElementById(route.anchor)?.scrollIntoView();
   }, [route]);

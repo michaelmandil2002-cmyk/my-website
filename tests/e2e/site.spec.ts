@@ -199,7 +199,12 @@ test('the cat is painted in by a marker once on entry (and stays still for reduc
   await expect(strokes.first()).toHaveCSS('animation-play-state', 'running');
   await expect(strokes.first()).toHaveCSS('visibility', 'visible');
   await expect(strokes.last()).toHaveCSS('visibility', 'hidden');
-  await expect(strokes.last()).toHaveCSS('stroke-dashoffset', '0px', { timeout: 6000 });
+  // The last stroke ends fully drawn (allowing for floating-point dust like 2.8e-13px).
+  await expect
+    .poll(() => strokes.last().evaluate((p) => parseFloat(getComputedStyle(p).strokeDashoffset)), {
+      timeout: 6000,
+    })
+    .toBeLessThan(0.01);
   const fades = await frame.evaluate((el) =>
     [el, ...el.querySelectorAll('img, svg')].map((n) => getComputedStyle(n).animationName),
   );
@@ -303,7 +308,6 @@ test('work cards: title and description panel slides up on hover, sits under the
   isMobile,
 }) => {
   await page.goto('./#work');
-  // The first card (tattoos) has no description; use the second.
   const card = page.locator('#work li a').nth(1);
   await card.scrollIntoViewIfNeeded();
   const title = card.locator('h3');
@@ -504,9 +508,10 @@ test('link previews show only the title, no description', async ({ page }) => {
   await expect(
     page.locator('meta[name="description"], meta[property="og:description"]'),
   ).toHaveCount(0);
+  await expect(page).toHaveTitle('Michael - Graphic Designer');
   await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
     'content',
-    /Michael Mandil/,
+    'Michael - Graphic Designer',
   );
 });
 
