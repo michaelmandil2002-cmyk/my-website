@@ -499,6 +499,17 @@ test('work has no filters or count; only project pages center their text', async
   expect(new Set(projectAligns), 'project pages are centered').toEqual(new Set(['center']));
 });
 
+test('link previews show only the title, no description', async ({ page }) => {
+  await page.goto('./');
+  await expect(
+    page.locator('meta[name="description"], meta[property="og:description"]'),
+  ).toHaveCount(0);
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
+    'content',
+    /Michael Mandil/,
+  );
+});
+
 test('removed content stays off the site', async ({ page }) => {
   await page.goto('./');
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
